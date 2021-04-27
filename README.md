@@ -1,2 +1,2 @@
-# MatchFixs
+# MatchFix
  Sports Utility Management application.
