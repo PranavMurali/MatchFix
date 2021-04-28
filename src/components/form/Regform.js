@@ -30,7 +30,7 @@ const Regform = () => {
         </Jumbotron>
 
         <Form className="form">
-    <Form.Group controlId="formBasicEmail">
+        <Form.Group controlId="formBasicEmail">
         <Form.Group>
             <Form.Label>Name</Form.Label>
             <Form.Row>
