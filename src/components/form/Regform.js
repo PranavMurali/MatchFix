@@ -1,15 +1,35 @@
 import {React, useState} from 'react'
-import { Button, Form, Col} from 'react-bootstrap'
+import { Button, Form, Col,Jumbotron,Container} from 'react-bootstrap'
 import './styles.css'
 import TimeKeeper from 'react-timekeeper';
 const Regform = () => {
     const [startTime, setStartTime] = useState('12:34pm')
     const [showStartTime, setShowStartTime] = useState(true)
-
     const [endTime, setEndTime] = useState('1:40pm')
     const [showEndTime, setShowEndTime] = useState(true)
+
+    const handleStartTime = () =>{
+        setShowStartTime(false)
+        alert(`Slot starts at ${startTime}`)
+    } 
+
+    const handleEndTime = () =>{
+        setShowEndTime(false)
+        alert(`Slot ends at ${endTime}`)
+    } 
+
     return (
-        <Form className="t">
+        <>
+        <Jumbotron fluid className="jumbotron">
+        <Container>
+            <h1>Guest registration</h1>
+            <p>
+            This is guest reg.
+            </p>
+        </Container>
+        </Jumbotron>
+
+        <Form className="form">
     <Form.Group controlId="formBasicEmail">
         <Form.Group>
             <Form.Label>Name</Form.Label>
@@ -71,11 +91,11 @@ const Regform = () => {
                 <TimeKeeper
                     time={startTime}
                     onChange={(newTime) => setStartTime(newTime.formatted12)}
-                    onDoneClick={() => setShowStartTime(false)}
+                    onDoneClick={() => handleStartTime()}
                     switchToMinuteOnHourSelect
                 />
             }
-            <span>Chosen slot Begins at {startTime}</span>
+            <span>Slot starts at {startTime}</span>
             {!showStartTime &&
                 <button onClick={() => setShowStartTime(true)}>Show</button>
             }
@@ -86,12 +106,12 @@ const Regform = () => {
                 <TimeKeeper
                     time={endTime}
                     onChange={(newTime) => setEndTime(newTime.formatted12)}
-                    onDoneClick={() => setShowEndTime(false)}
+                    onDoneClick={() => handleEndTime()}
                     switchToMinuteOnHourSelect
                 />
             }
-            <span>Chosen slot End at {endTime}</span>
-            {!showEndTime &&
+            <span>Slot ends at {endTime}</span>
+            {!showEndTime && 
                 <button onClick={() => setShowEndTime(true)}>Show</button>
             }
     </div>
@@ -100,6 +120,7 @@ const Regform = () => {
         Submit
     </Button>
     </Form>
+    </>
     )
 }
 
