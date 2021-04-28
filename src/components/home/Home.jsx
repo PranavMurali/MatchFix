@@ -1,10 +1,47 @@
 import React from 'react'
-
+import {Carousel} from 'react-bootstrap'
+import foot from "./football.jpg"
+import bball from "./bball.jpg"
+import cricket from "./cricket.jpg"
 const Home = () => {
     return (
-        <div>
-            hey
-        </div>
+        <Carousel className="Caro">
+        <Carousel.Item style={{'height':"300px"}}>
+            <img
+            style={{'height':"300px"}}
+            className="d-block w-100"
+            src={foot}
+            alt="First slide"
+            />
+            <Carousel.Caption>
+            <h3>Football</h3>
+            </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item style={{'height':"300px"}}>
+            <img
+            style={{'height':"300px"}}
+            className="d-block w-100"
+            src={cricket}
+            alt="Second slide"
+            />
+
+            <Carousel.Caption>
+            <h3>Cricket</h3>
+            </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item style={{'height':"300px"}}>
+            <img
+            style={{'height':"300px"}}
+            className="d-block w-100"
+            src={bball}
+            alt="Third slide"
+            />
+
+            <Carousel.Caption>
+            <h3>Basketball</h3>
+            </Carousel.Caption>
+        </Carousel.Item>
+        </Carousel>
     )
 }
 
