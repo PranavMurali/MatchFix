@@ -62,7 +62,7 @@ const Sigform = () => {
         <Form.Check type="checkbox" label="Remember Me" />
     </Form.Group>
     <Button variant="primary" type="submit">
-        Submit
+        Signup
     </Button>
 
     <Button className="buttwht">

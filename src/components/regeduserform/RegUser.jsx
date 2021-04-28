@@ -1,8 +1,8 @@
 import {React, useState} from 'react'
-import { Button, Form, Col,Jumbotron,Container,Dropdown,DropdownButton} from 'react-bootstrap'
+import { Button, Form, Col,Jumbotron,Container, Dropdown, DropdownButton} from 'react-bootstrap'
 import './styles.css'
 import TimeKeeper from 'react-timekeeper';
-const Regform = () => {
+const RegUserform = () => {
     const [startTime, setStartTime] = useState('12:34pm')
     const [showStartTime, setShowStartTime] = useState(true)
     const [endTime, setEndTime] = useState('1:40pm')
@@ -22,9 +22,9 @@ const Regform = () => {
         <>
         <Jumbotron fluid className="jumbotron">
         <Container>
-            <h1>Guest registration</h1>
+            <h1>Hello registered user!</h1>
             <p>
-            This is guest reg.
+            This is your personal reg.
             </p>
         </Container>
         </Jumbotron>
@@ -55,7 +55,7 @@ const Regform = () => {
             <Form.Label>Register Number</Form.Label>
             <Form.Control type="text" placeholder="Enter Register Number" />
             <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            enter your college id.
             </Form.Text>
         </Form.Group>
     </Form.Group>
@@ -75,7 +75,7 @@ const Regform = () => {
     <Form.Group controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Remember Me" />
     </Form.Group>
-    <DropdownButton id="dropdown-basic-button" title="Sport">
+    <DropdownButton id="success" title="Sport">
     <Dropdown.Item href="#/action-1">Football</Dropdown.Item>
     <Dropdown.Item href="#/action-2">Basketball</Dropdown.Item>
     <Dropdown.Item href="#/action-3">Table Tennis</Dropdown.Item>
@@ -125,11 +125,11 @@ const Regform = () => {
     </div>
 
     <Button variant="primary" type="submit">
-        Book Slot
+        Submit
     </Button>
     </Form>
     </>
     )
 }
 
-export default Regform
+export default RegUserform
