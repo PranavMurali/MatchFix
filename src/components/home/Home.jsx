@@ -1,8 +1,8 @@
 import React from 'react'
 import {Carousel} from 'react-bootstrap'
-import foot from "./football.jpg"
-import bball from "./bball.jpg"
-import cricket from "./cricket.jpg"
+import foot from "./img/football.jpg"
+import bball from "./img/bball.jpg"
+import cricket from "./img/cricket.jpg"
 const Home = () => {
     return (
         <Carousel className="Caro">
@@ -36,7 +36,6 @@ const Home = () => {
             src={bball}
             alt="Third slide"
             />
-
             <Carousel.Caption>
             <h3>Basketball</h3>
             </Carousel.Caption>

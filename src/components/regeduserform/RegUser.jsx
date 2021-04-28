@@ -1,9 +1,9 @@
 import {React} from 'react'
 import {Jumbotron,Container,Figure} from 'react-bootstrap'
 import './styles.css'
-import foot from "./football.jpg"
-import bball from "./bball.jpg"
-import cricket from "./cricket.jpg"
+import foot from "./img/football.jpg"
+import bball from "./img/bball.jpg"
+import cricket from "./img/cricket.jpg"
 const RegUserform = () => {
     return (
         <>
