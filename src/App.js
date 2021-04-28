@@ -9,14 +9,10 @@ function App() {
       <Navs></Navs>
       <Switch>
         <Route path="/" exact>
-          <div><h1> Guest Registation</h1>
           <Regform />
-          </div>  
         </Route>
         <Route path="/signup" exact>
-          <div><h1> Signup</h1>
           <Sigform />
-          </div> 
         </Route>
       </Switch> 
     </Router>

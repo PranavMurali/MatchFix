@@ -1,10 +1,20 @@
 import {React, useState} from 'react'
-import { Button, Form, Col} from 'react-bootstrap'
+import { Button, Form, Col,Jumbotron,Container} from 'react-bootstrap'
 import './styles.css'
 import {Link} from "react-router-dom"; 
 
 const Sigform = () => {
     return (
+        <>
+        <Jumbotron fluid className="jumbotron">
+        <Container>
+            <h1>Signup</h1>
+            <p>
+            This is signup.
+            </p>
+        </Container>
+        </Jumbotron>
+
         <Form className="t">
     <Form.Group controlId="formBasicEmail">
         <Form.Group>
@@ -60,6 +70,7 @@ const Sigform = () => {
     </Button>
     
     </Form>
+    </>
     )
 }
 
