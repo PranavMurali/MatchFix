@@ -2,13 +2,14 @@ import Regform from "./components/form/Regform";
 import Sigform from "./components/userform/Signup";
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Navs from "./components/navbar/Navs";
-import RegUserform from "./components/regeduserform/RegUser";
+import RegUserform from "./components/regeduser/RegUser";
 import Home from "./components/home/Home";
 import Football from "./components/football/Football"
 import Basketball from "./components/basketball/Basket"
 import Cricket from "./components/cricket/Cricket"
 import Games from "./components/more/Games"
 import Login from "./components/login/Login";
+import Reguserbook from "./components/reguserform/Reguserbook"
 
 function App() {
   return (
@@ -49,6 +50,10 @@ function App() {
 
         <Route path="/login" exact>
           <Login/>
+        </Route>
+
+        <Route path="/regbookslot" exact>
+          <Reguserbook/>
         </Route>
 
       </Switch> 
