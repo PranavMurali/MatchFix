@@ -2,6 +2,7 @@ import {React, useState} from 'react'
 import { Button, Form, Col,Jumbotron,Container,Dropdown,DropdownButton} from 'react-bootstrap'
 import './styles.css'
 import TimeKeeper from 'react-timekeeper';
+import {Link} from "react-router-dom"; 
 const Regform = () => {
     const [startTime, setStartTime] = useState('12:34pm')
     const [showStartTime, setShowStartTime] = useState(true)
@@ -75,7 +76,7 @@ const Regform = () => {
     <Form.Group controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Remember Me" />
     </Form.Group>
-    <DropdownButton id="dropdown-basic-button" title="Sport">
+    <DropdownButton id="dropdown-basic-button" variant="info" title="Sport">
     <Dropdown.Item href="#/action-1">Football</Dropdown.Item>
     <Dropdown.Item href="#/action-2">Basketball</Dropdown.Item>
     <Dropdown.Item href="#/action-3">Table Tennis</Dropdown.Item>
@@ -120,14 +121,23 @@ const Regform = () => {
             }
             <span>Slot ends at {endTime}</span>
             {!showEndTime && 
-                <button onClick={() => setShowEndTime(true)}>Show</button>
+                <button onClick={() => {setShowEndTime(true)}}>Show</button>
             }
     </div>
-
-    <Button variant="primary" type="submit">
+    
+    <Button variant="dark" type="submit">
         Book Slot
     </Button>
+    <Button variant="success" className="butt">
+        <Link to="/signup" style={{textDecoration: "none",color:"white" }}>Signup</Link>
+    </Button>
+    <Button  className="butt">
+        <Link to="/login" style={{textDecoration: "none",color:"white" }}>Have an account?  Login</Link>
+    </Button>
     </Form>
+
+    
+
     </>
     )
 }
