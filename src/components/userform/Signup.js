@@ -15,7 +15,7 @@ const Sigform = () => {
         </Container>
         </Jumbotron>
 
-        <Form className="t">
+        <Form className="form">
     <Form.Group controlId="formBasicEmail">
         <Form.Group>
             <Form.Label>Name</Form.Label>
@@ -50,7 +50,6 @@ const Sigform = () => {
     <Form.Label htmlFor="inputPassword6">Password</Form.Label>
     <Form.Control
         type="password"
-        className="mx-sm-3"
         id="inputPassword6"
         aria-describedby="passwordHelpInline"
     />
@@ -58,17 +57,20 @@ const Sigform = () => {
         Must be 8-20 characters long.
     </Form.Text>
     </Form.Group>
+
     <Form.Group controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Remember Me" />
     </Form.Group>
-    <Button variant="primary" type="submit">
-        Signup
-    </Button>
 
-    <Button className="buttwht">
-    <Link to="/" style={{textDecoration: "none",color:"white" }}>Register as a Guest</Link>
+    <Button variant="success" className="butt">
+        <Link to="/home" style={{textDecoration: "none",color:"white" }}>Signup</Link>
     </Button>
-    
+    <Button variant="dark" className="butt">
+        <Link to="/guest" style={{textDecoration: "none",color:"white"}}>Don't want to Signup?</Link>
+    </Button>
+    <Button  className="butt">
+        <Link to="/login" style={{textDecoration: "none",color:"white" }}>Have an account?  Login</Link>
+    </Button>
     </Form>
     </>
     )

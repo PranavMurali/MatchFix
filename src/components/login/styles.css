@@ -1,0 +1,11 @@
+
+.form{
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 3px 10px gray;
+    padding: 10px;
+}
+
+.butt{
+    margin: 10px;
+}
