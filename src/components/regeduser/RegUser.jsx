@@ -27,7 +27,7 @@ const RegUserform = () => {
                 Book football.
             </Card.Text>
             <Card.Footer>
-            <Button>
+            <Button variant="success">
             <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
             </Button>
             </Card.Footer>
@@ -43,7 +43,7 @@ const RegUserform = () => {
             </Card.Text>
             </Card.Body>
             <Card.Footer>
-            <Button>
+            <Button variant="success">
             <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
             </Button>
             </Card.Footer>
@@ -57,7 +57,7 @@ const RegUserform = () => {
                 Book more sports.
             </Card.Text>
             <Card.Footer>
-            <Button>
+            <Button variant="success">
             <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
             </Button>
             </Card.Footer>
@@ -72,7 +72,7 @@ const RegUserform = () => {
                 Book cricket.
             </Card.Text>
             <Card.Footer>
-            <Button>
+            <Button variant="success">
             <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
             </Button>
             </Card.Footer>
