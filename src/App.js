@@ -14,7 +14,7 @@ import Reguserbook from "./components/reguserform/Reguserbook"
 import { useStateValue } from "./StateProvider";
 import {auth} from "./firebase"
 function App() {
-  const[{user ,slots},dispatch]=useStateValue();
+  const[{user},dispatch]=useStateValue();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser)=>{
@@ -26,10 +26,9 @@ function App() {
       }
 
       else{
-
         dispatch({
           type:"SET_USER",
-          user: null,
+          user: "user",
         })
 
       }
@@ -38,7 +37,7 @@ function App() {
     return() =>{
       unsubscribe();
     }
-  }, [])
+  })
   console.log("user is",user);
 
   return (

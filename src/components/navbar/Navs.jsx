@@ -4,8 +4,7 @@ import "./styles.css"
 import {useStateValue} from "../../StateProvider"
 import {auth} from "../../firebase"
 const Navs = () => {
-    const[{user,slots},dispatch] = useStateValue();
-    console.log(slots);
+    const[{user,slots}] = useStateValue();
 
     const logout= () =>{
         if (user){
@@ -19,7 +18,6 @@ const Navs = () => {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-        <Nav.Link href="/" className="navlink">Home</Nav.Link>
         <Nav.Link href="/guest" className="navlink">Guest register</Nav.Link>
         <Nav.Link href={!user && "/signup"} onClick= {logout} className="navlink">{user ? 'Sign Out' : "Sign Up"}</Nav.Link>
         <NavDropdown title="Facilities" id="basic-nav-dropdown" style={{textDecoration:"none",color:"white"}}>
@@ -35,7 +33,7 @@ const Navs = () => {
                 <Nav.Link href="/" className="navlink" >{slots.lenght}</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href={!user && "/login"} className="navlink" >{user?.email}</Nav.Link>
+                <Nav.Link href={!user && "/login"} className="navlink" >{user}</Nav.Link>
             </Nav.Item>
             
         </Nav>
