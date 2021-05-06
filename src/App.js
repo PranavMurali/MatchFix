@@ -1,3 +1,4 @@
+import {useEffect} from "react"
 import Regform from "./components/form/Regform";
 import Sigform from "./components/userform/Signup";
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
@@ -10,8 +11,36 @@ import Cricket from "./components/cricket/Cricket"
 import Games from "./components/more/Games"
 import Login from "./components/login/Login";
 import Reguserbook from "./components/reguserform/Reguserbook"
-
+import { useStateValue } from "./StateProvider";
+import {auth} from "./firebase"
 function App() {
+  const[{user ,slots},dispatch]=useStateValue();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser)=>{
+      if (authUser){
+        dispatch({
+          type:"SET_USER",
+          user:authUser,
+        })
+      }
+
+      else{
+
+        dispatch({
+          type:"SET_USER",
+          user: null,
+        })
+
+      }
+
+    })
+    return() =>{
+      unsubscribe();
+    }
+  }, [])
+  console.log("user is",user);
+
   return (
     <Router>
       <Navs></Navs>

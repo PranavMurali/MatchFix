@@ -1,9 +1,23 @@
-import {React} from 'react'
+import {React ,useState} from 'react'
 import { Button, Form, Col,Jumbotron,Container} from 'react-bootstrap'
 import './styles.css'
-import {Link} from "react-router-dom"; 
+import {Link, useHistory} from "react-router-dom"; 
+import { auth } from '../../firebase';
 
 const Sigform = () => {
+    const history =useHistory();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const register = event=>{
+        event.preventDefault();
+        auth.createUserWithEmailAndPassword(email,password)
+        .then(auth=>{
+            history.push('/');
+        })
+        .catch((e)=>alert(e.message));
+    }
+
+
     return (
         <>
         <Jumbotron fluid className="jumbotron">
@@ -31,7 +45,7 @@ const Sigform = () => {
         
         <Form.Group>
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" isInvalid="true" />
+            <Form.Control value ={email} onChange={event=>setEmail(event.target.value)} type="email" placeholder="Enter email" isInvalid="true" />
             <Form.Text className="text-muted">
             We'll never share your email with anyone else.
             </Form.Text>
@@ -52,6 +66,7 @@ const Sigform = () => {
         type="password"
         id="inputPassword6"
         aria-describedby="passwordHelpInline"
+        value ={password} onChange={event=>setPassword(event.target.value)}
     />
     <Form.Text id="passwordHelpInline" muted>
         Must be 8-20 characters long.
@@ -63,7 +78,7 @@ const Sigform = () => {
     </Form.Group>
 
     <Button variant="success" className="butt">
-        <Link to="/home" style={{textDecoration: "none",color:"white" }}>Signup</Link>
+        <Link onClick={register} to="/home" style={{textDecoration: "none",color:"white" }}>Signup</Link>
     </Button>
     <Button variant="dark" className="butt">
         <Link to="/guest" style={{textDecoration: "none",color:"white"}}>Don't want to Signup?</Link>

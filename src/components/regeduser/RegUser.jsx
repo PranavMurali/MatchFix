@@ -6,12 +6,27 @@ import foot from "./img/football.jpg"
 import bball from "./img/bball.jpg"
 import cricket from "./img/cricket.jpg"
 import more from "./img/more.jpg"
-const RegUserform = () => {
+import {useStateValue} from "../../StateProvider";
+const RegUserform = ({regid,startTime,endTime,sport}) => {
+    const[{user},dispatch] = useStateValue();
+
+    const bookSlot = () =>{
+        dispatch({
+            type:'BOOK_SLOT',
+            slot:{
+                regid:regid,
+                startTime:startTime,
+                endTime:endTime,
+                sport:sport,
+            }
+        })
+    }
+
     return (
         <>
         <Jumbotron fluid className="jumbotron">
         <Container>
-            <h1>Hello registered user!</h1>
+            <h1>Hello ,{user}</h1>
             <p>
             This is your personal reg.
             </p>
@@ -73,7 +88,7 @@ const RegUserform = () => {
             </Card.Text>
             <Card.Footer>
             <Button variant="success">
-            <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
+            <Link to="/regbookslot" onClick={bookSlot} style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
             </Button>
             </Card.Footer>
             </Card.Body>
