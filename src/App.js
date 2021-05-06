@@ -12,7 +12,11 @@ import Games from "./components/more/Games"
 import Login from "./components/login/Login";
 import Reguserbook from "./components/reguserform/Reguserbook"
 import { useStateValue } from "./StateProvider";
+import ripples from "./ripples.png"
 import {auth} from "./firebase"
+import Particles from 'react-particles-js';
+import particlesConfig from './components/particles/particles'
+
 function App() {
   const[{user},dispatch]=useStateValue();
 
@@ -40,7 +44,11 @@ function App() {
   console.log("user is",user);
 
   return (
-    <Router>
+    <div className="App" style={{ position: 'relative', overflow: "hidden" }}>
+      <div style={{ position: 'absolute'}}>
+        <Particles height="100vh" width="100vw" params={particlesConfig} />
+      </div>
+      <Router>
       <Navs></Navs>
       <Switch>
         <Route path="/guest" exact>
@@ -85,7 +93,7 @@ function App() {
 
       </Switch> 
     </Router>
-
+    </div>
   );
 }
 

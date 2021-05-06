@@ -21,7 +21,7 @@ const Regform = () => {
 
     return (
         <>
-        <Jumbotron fluid className="jumbotron">
+        <Jumbotron fluid className="jumbo_reg">
         <Container>
             <h1>Guest registration</h1>
             <p>

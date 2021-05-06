@@ -18,7 +18,7 @@ const Navs = () => {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-        <Nav.Link href="/guest" className="navlink">Guest register</Nav.Link>
+        <Nav.Link href="/guest" className="navlink">{user ? "Book for a Friend" : "Guest Register"}</Nav.Link>
         <Nav.Link href={!user && "/signup"} onClick= {logout} className="navlink">{user ? 'Sign Out' : "Sign Up"}</Nav.Link>
         <NavDropdown title="Facilities" id="basic-nav-dropdown" style={{textDecoration:"none",color:"white"}}>
             <NavDropdown.Item href="/football">Football</NavDropdown.Item>

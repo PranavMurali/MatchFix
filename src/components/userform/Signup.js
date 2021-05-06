@@ -20,7 +20,7 @@ const Sigform = () => {
 
     return (
         <>
-        <Jumbotron fluid className="jumbotron">
+        <Jumbotron fluid className="jumbo_signup">
         <Container>
             <h1>Signup</h1>
             <p>
