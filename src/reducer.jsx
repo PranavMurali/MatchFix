@@ -14,7 +14,7 @@ const reducer = (state, action) => {
         case 'BOOK_SLOT':
             return{
                 ...state,
-                slots:[...state.slots,action.item],
+                slots:[action.data],
             }
         default:
             return state;

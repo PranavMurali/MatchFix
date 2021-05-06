@@ -14,8 +14,8 @@ import Reguserbook from "./components/reguserform/Reguserbook"
 import { useStateValue } from "./StateProvider";
 import ripples from "./ripples.png"
 import {auth} from "./firebase"
-import Particles from 'react-particles-js';
-import particlesConfig from './components/particles/particles'
+import Particle from "./components/particles/particle";
+import Profile from "./components/profile/Profile";
 
 function App() {
   const[{user},dispatch]=useStateValue();
@@ -44,10 +44,6 @@ function App() {
   console.log("user is",user);
 
   return (
-    <div className="App" style={{ position: 'relative', overflow: "hidden" }}>
-      <div style={{ position: 'absolute'}}>
-        <Particles height="100vh" width="100vw" params={particlesConfig} />
-      </div>
       <Router>
       <Navs></Navs>
       <Switch>
@@ -61,6 +57,10 @@ function App() {
 
         <Route path="/signup" exact>
           <Sigform />
+        </Route>
+        
+        <Route path="/profile" exact>
+          <Profile/>
         </Route>
 
         <Route path="/user" exact>
@@ -83,6 +83,10 @@ function App() {
           <Games/>
         </Route>
 
+        <Route path="/particle" exact>
+          <Particle/>
+        </Route>
+
         <Route path="/login" exact>
           <Login/>
         </Route>
@@ -90,10 +94,9 @@ function App() {
         <Route path="/regbookslot" exact>
           <Reguserbook/>
         </Route>
-
       </Switch> 
     </Router>
-    </div>
+      
   );
 }
 
