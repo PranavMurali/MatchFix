@@ -1,3 +1,4 @@
+import {useEffect} from "react"
 import Regform from "./components/form/Regform";
 import Sigform from "./components/userform/Signup";
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
@@ -10,8 +11,34 @@ import Cricket from "./components/cricket/Cricket"
 import Games from "./components/more/Games"
 import Login from "./components/login/Login";
 import Reguserbook from "./components/reguserform/Reguserbook"
-
+import { useStateValue } from "./StateProvider";
+import {auth} from "./firebase"
 function App() {
+  const[{user},dispatch]=useStateValue();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser)=>{
+      console.log(authUser);
+      if (authUser){
+        dispatch({
+          type:"SET_USER",
+          data:authUser,
+        })
+      }
+
+      else{
+        dispatch({
+          type:"SET_USER",
+          data: null,
+        })
+
+      }
+
+    })
+
+  },[user])
+  console.log("user is",user);
+
   return (
     <Router>
       <Navs></Navs>

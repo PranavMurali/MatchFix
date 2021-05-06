@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Form,Row,Col} from 'react-bootstrap'
-import {Link} from "react-router-dom"; 
+import {Link, useHistory} from "react-router-dom"; 
+import { auth } from '../../firebase';
 import "./styles.css"
 const Login = () => {
+    const history =useHistory();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const login = event=>{
+        event.preventDefault();
+        auth
+        .signInWithEmailAndPassword(email,password)
+        .then((auth)=>{
+            history.push('/');
+        })
+        .catch((e)=>alert(e.message));
+    }
     return (
         <Form className="form">
         <Form.Group as={Row} controlId="formHorizontalEmail">
@@ -10,7 +23,7 @@ const Login = () => {
             Email
             </Form.Label>
             <Col sm={10}>
-            <Form.Control type="email" placeholder="Email" />
+            <Form.Control value ={email} onChange={event=>setEmail(event.target.value)} type="email" placeholder="Email" />
             </Col>
         </Form.Group>
 
@@ -19,17 +32,17 @@ const Login = () => {
             Password
             </Form.Label>
             <Col sm={10}>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control value ={password} onChange={event=>setPassword(event.target.value)} type="password" placeholder="Password" />
             </Col>
         </Form.Group>
         <Button variant="success" className="butt">
-            <Link to="/home" style={{textDecoration: "none",color:"white" }}>Login</Link>
+            <Link onClick={login} style={{textDecoration: "none",color:"white" }}>Login</Link>
         </Button>
         <Button variant="dark" className="butt">
             <Link to="/guest" style={{textDecoration: "none",color:"white"}}>Don't want to Login?</Link>
         </Button>
         <Button  className="butt">
-            <Link to="/login" style={{textDecoration: "none",color:"white" }}>Need an account? Signup</Link>
+            <Link to="/signup" style={{textDecoration: "none",color:"white" }}>Need an account? Signup</Link>
         </Button>
         
             

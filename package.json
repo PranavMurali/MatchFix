@@ -11,6 +11,8 @@
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^4.6.0",
     "bootstrap-daterangepicker": "^3.1.0",
+    "dotenv": "^9.0.0",
+    "firebase": "^8.5.0",
     "is-svg": "^4.3.1",
     "jquery": "^3.6.0",
     "mdbreact": "^5.0.2",
