@@ -4,7 +4,7 @@ import "./styles.css"
 import {useStateValue} from "../../StateProvider"
 import {auth} from "../../firebase"
 const Navs = () => {
-    const[{user,slots}] = useStateValue();
+    const[{user,slots},] = useStateValue();
 
     const logout= () =>{
         if (user){
@@ -33,7 +33,7 @@ const Navs = () => {
                 <Nav.Link href="/" className="navlink" >{slots.lenght}</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href={!user && "/login"} className="navlink" >{user}</Nav.Link>
+                <Nav.Link href={!user && "/login"} className="navlink" >{!user ? 'Sign in' : user.email}</Nav.Link>
             </Nav.Item>
             
         </Nav>

@@ -45,7 +45,7 @@ const Sigform = () => {
         
         <Form.Group>
             <Form.Label>Email address</Form.Label>
-            <Form.Control value ={email} onChange={event=>setEmail(event.target.value)} type="email" placeholder="Enter email" isInvalid="true" />
+            <Form.Control onChange={event=>setEmail(event.target.value)} type="email" placeholder="Enter email" isInvalid="true" />
             <Form.Text className="text-muted">
             We'll never share your email with anyone else.
             </Form.Text>
@@ -66,7 +66,7 @@ const Sigform = () => {
         type="password"
         id="inputPassword6"
         aria-describedby="passwordHelpInline"
-        value ={password} onChange={event=>setPassword(event.target.value)}
+        onChange={event=>setPassword(event.target.value)}
     />
     <Form.Text id="passwordHelpInline" muted>
         Must be 8-20 characters long.
