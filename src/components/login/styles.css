@@ -4,8 +4,14 @@
     justify-content: center;
     box-shadow: 2px 3px 10px gray;
     padding: 10px;
+    z-index: 100 !important;
 }
 
 .butt{
     margin: 10px;
+}
+
+.divpar{
+    z-index: -1;
+    position: absolute;
 }

@@ -1,0 +1,5 @@
+.bg{
+    background-image: url("./ripples.png");
+    background-repeat: repeat;
+    z-index: -2;
+}

@@ -19,6 +19,7 @@ const Regform = () => {
         alert(`Slot ends at ${endTime}`)
     } 
 
+    
     return (
         <>
         <Jumbotron fluid className="jumbo_reg">

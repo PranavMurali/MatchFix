@@ -12,10 +12,9 @@ import Games from "./components/more/Games"
 import Login from "./components/login/Login";
 import Reguserbook from "./components/reguserform/Reguserbook"
 import { useStateValue } from "./StateProvider";
-import ripples from "./ripples.png"
 import {auth} from "./firebase"
-import Particle from "./components/particles/particle";
 import Profile from "./components/profile/Profile";
+import "./App.css"
 
 function App() {
   const[{user},dispatch]=useStateValue();
@@ -44,6 +43,7 @@ function App() {
   console.log("user is",user);
 
   return (
+    <div className="bg">
       <Router>
       <Navs></Navs>
       <Switch>
@@ -83,10 +83,6 @@ function App() {
           <Games/>
         </Route>
 
-        <Route path="/particle" exact>
-          <Particle/>
-        </Route>
-
         <Route path="/login" exact>
           <Login/>
         </Route>
@@ -94,9 +90,10 @@ function App() {
         <Route path="/regbookslot" exact>
           <Reguserbook/>
         </Route>
+
       </Switch> 
     </Router>
-      
+    </div>
   );
 }
 

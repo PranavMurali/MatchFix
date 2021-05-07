@@ -3,6 +3,8 @@ import { Button, Form,Row,Col} from 'react-bootstrap'
 import {Link, useHistory} from "react-router-dom"; 
 import { auth } from '../../firebase';
 import "./styles.css"
+import Particles from 'react-particles-js';
+import particlesConfig from "./particles.js"
 const Login = () => {
     const history =useHistory();
     const [email, setEmail] = useState('');
@@ -17,6 +19,10 @@ const Login = () => {
         .catch((e)=>alert(e.message));
     }
     return (
+        <div className="App" style={{ position: 'relative', overflow: "hidden" ,width:"100%",height:"100%"}}>
+        <div className="divpar">
+            <Particles height="100vh" width="100vw" params={particlesConfig} />
+        </div>
         <Form className="form">
         <Form.Group as={Row} controlId="formHorizontalEmail">
             <Form.Label column sm={2}>
@@ -44,10 +50,8 @@ const Login = () => {
         <Button  className="butt">
             <Link to="/signup" style={{textDecoration: "none",color:"white" }}>Need an account? Signup</Link>
         </Button>
-        
-            
-        
         </Form>
+        </div>
     )
 }
 
