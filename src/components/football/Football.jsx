@@ -1,36 +1,26 @@
-import React, { useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import React from 'react'
+import {Jumbotron, Container,Figure} from 'react-bootstrap'
+import foot from "./img/foot.jpg"
 import "./styles.css"
-
-
-function Box(props) {
-  const mesh = useRef()
-  const [hovered, setHover] = useState(false)
-  const [active, setActive] = useState(false)
-  useFrame((state, delta) => (mesh.current.rotation.x += 0.01))
-  return (
-    <mesh
-      {...props}
-      ref={mesh}
-      scale={active ? 1.5 : 1}
-      onClick={(event) => setActive(!active)}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
-    </mesh>
-  )
-}
-
 const Football = () => {
     return (
-        <Canvas>
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
-        </Canvas>
+        <Jumbotron fluid className="jumbo_bb">
+        <Container>
+            <h1>Fluid jumbotron</h1>
+            <Figure>
+            <Figure.Image
+                width={500}
+                height={500}
+                alt="400x300"
+                src={foot}
+            />
+            <Figure.Caption className="caption_img">
+                Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </Figure.Caption>
+            </Figure>
+        </Container>
+        </Jumbotron>
     )
 }
 
-export default Football;
+export default Football

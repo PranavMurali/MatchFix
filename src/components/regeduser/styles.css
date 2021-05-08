@@ -2,3 +2,12 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.jumbo_reged{
+    background: rgb(34,193,195);
+    background: linear-gradient(346deg, rgba(34,193,195,1) 0%, rgba(0,0,0,1) 100%); 
+}
+
+.con_text{
+    color: aliceblue;
+}

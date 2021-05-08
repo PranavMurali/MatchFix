@@ -10,25 +10,13 @@ import {useStateValue} from "../../StateProvider";
 const RegUserform = ({regid,startTime,endTime,sport}) => {
     const[{user},dispatch] = useStateValue();
 
-    const bookSlot = () =>{
-        dispatch({
-            type:'BOOK_SLOT',
-            slot:{
-                regid:regid,
-                startTime:startTime,
-                endTime:endTime,
-                sport:sport,
-            }
-        })
-    }
-
     return (
         <>
-        <Jumbotron fluid className="jumbotron">
-        <Container>
-            <h1>Hello ,{user}</h1>
+        <Jumbotron fluid className="jumbo_reged">
+        <Container className="con_text">
+            <h1>Hello, {!user ? 'user' : user.email}</h1>
             <p>
-            This is your personal reg.
+            This is your personal slot booking screen.
             </p>
         </Container>
         </Jumbotron>
@@ -88,7 +76,7 @@ const RegUserform = ({regid,startTime,endTime,sport}) => {
             </Card.Text>
             <Card.Footer>
             <Button variant="success">
-            <Link to="/regbookslot" onClick={bookSlot} style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
+            <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
             </Button>
             </Card.Footer>
             </Card.Body>

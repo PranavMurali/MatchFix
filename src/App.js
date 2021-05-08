@@ -13,6 +13,9 @@ import Login from "./components/login/Login";
 import Reguserbook from "./components/reguserform/Reguserbook"
 import { useStateValue } from "./StateProvider";
 import {auth} from "./firebase"
+import Profile from "./components/profile/Profile";
+import "./App.css"
+
 function App() {
   const[{user},dispatch]=useStateValue();
 
@@ -40,7 +43,8 @@ function App() {
   console.log("user is",user);
 
   return (
-    <Router>
+    <div className="bg">
+      <Router>
       <Navs></Navs>
       <Switch>
         <Route path="/guest" exact>
@@ -53,6 +57,10 @@ function App() {
 
         <Route path="/signup" exact>
           <Sigform />
+        </Route>
+        
+        <Route path="/profile" exact>
+          <Profile/>
         </Route>
 
         <Route path="/user" exact>
@@ -85,7 +93,7 @@ function App() {
 
       </Switch> 
     </Router>
-
+    </div>
   );
 }
 
