@@ -1,0 +1,10 @@
+.jumboprof{
+    background: rgb(0,0,0);
+    background: linear-gradient(74deg, rgba(0,0,0,1) 0%, rgba(190,26,26,1) 31%, rgba(26,37,190,1) 74%);
+    color: aliceblue;
+}
+
+.tables{
+    padding-left: 10%;
+    padding-right: 10%;
+}

@@ -3,8 +3,6 @@ import { Button, Form,Row,Col} from 'react-bootstrap'
 import {Link, useHistory} from "react-router-dom"; 
 import { auth } from '../../firebase';
 import "./styles.css"
-import Particles from 'react-particles-js';
-import particlesConfig from "./particles.js"
 const Login = () => {
     const history =useHistory();
     const [email, setEmail] = useState('');
@@ -18,6 +16,8 @@ const Login = () => {
         })
         .catch((e)=>alert(e.message));
     }
+
+
     return (
         <div className="App" style={{ position: 'relative', overflow: "hidden" ,width:"100%",height:"100%"}}>
         <div className="divpar">
@@ -41,6 +41,7 @@ const Login = () => {
             <Form.Control value ={password} onChange={event=>setPassword(event.target.value)} type="password" placeholder="Password" />
             </Col>
         </Form.Group>
+
         <Button variant="success" className="butt">
             <Link onClick={login} style={{textDecoration: "none",color:"white" }}>Login</Link>
         </Button>
