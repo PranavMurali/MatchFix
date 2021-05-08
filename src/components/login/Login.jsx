@@ -3,6 +3,8 @@ import { Button, Form,Row,Col} from 'react-bootstrap'
 import {Link, useHistory} from "react-router-dom"; 
 import { auth } from '../../firebase';
 import "./styles.css"
+import Particles from 'react-particles-js';
+import particlesConfig from "./particles"
 const Login = () => {
     const history =useHistory();
     const [email, setEmail] = useState('');
