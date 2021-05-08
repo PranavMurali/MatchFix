@@ -73,9 +73,6 @@ const Regform = () => {
         Must be 8-20 characters long.
     </Form.Text>
     </Form.Group>
-    <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Remember Me" />
-    </Form.Group>
     <DropdownButton id="dropdown-basic-button" variant="info" title="Sport">
     <Dropdown.Item href="#/action-1">Football</Dropdown.Item>
     <Dropdown.Item href="#/action-2">Basketball</Dropdown.Item>
