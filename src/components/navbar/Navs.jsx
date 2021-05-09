@@ -3,7 +3,6 @@ import {Navbar,Nav, NavDropdown} from "react-bootstrap"
 import "./styles.css"
 import {useStateValue} from "../../StateProvider"
 import {auth} from "../../firebase"
-import ico from "./ico.png"
 const Navs = () => {
     const[{user,slots},] = useStateValue();
 

@@ -7,8 +7,41 @@ import bball from "./img/bball.jpg"
 import cricket from "./img/cricket.jpg"
 import more from "./img/more.jpg"
 import {useStateValue} from "../../StateProvider";
-const RegUserform = ({regid,startTime,endTime,sport}) => {
-    const[{user},dispatch] = useStateValue();
+const RegUserform = ({regid,startTime,endTime}) => {
+    const[{user,sport,fields},dispatch] = useStateValue();
+    const bookfoot = ()=>{
+        dispatch({
+            type:"SET_SPORT",
+            data:"Football",
+            list:["7's ground", "11's ground"],
+        },[sport])
+    }
+
+    const bookcric = ()=>{
+        dispatch({
+            type:"SET_SPORT",
+            data:"Cricket",
+            list:["Hill side", "AB2"],
+        },[sport])
+    }
+
+    const bookbb = ()=>{
+        dispatch({
+            type:"SET_SPORT",
+            data:"Basketball",
+            list:["Hostel court","Main court"],
+        },[sport])
+    }  
+
+    const bookmore = ()=>{
+        dispatch({
+            type:"SET_SPORT",
+            data:"More games",
+        },[sport])
+    }  
+
+    console.log(fields)
+
 
     return (
         <>
@@ -31,7 +64,7 @@ const RegUserform = ({regid,startTime,endTime,sport}) => {
             </Card.Text>
             <Card.Footer>
             <Button variant="success">
-            <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
+            <Link to="/regbookslot" onClick={bookfoot} style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
             </Button>
             </Card.Footer>
             </Card.Body>
@@ -47,7 +80,7 @@ const RegUserform = ({regid,startTime,endTime,sport}) => {
             </Card.Body>
             <Card.Footer>
             <Button variant="success">
-            <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
+            <Link to="/regbookslot" onClick={bookbb} style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
             </Button>
             </Card.Footer>
         </Card>
@@ -61,7 +94,7 @@ const RegUserform = ({regid,startTime,endTime,sport}) => {
             </Card.Text>
             <Card.Footer>
             <Button variant="success">
-            <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
+            <Link to="/regbookslot"  onClick={bookmore} style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
             </Button>
             </Card.Footer>
             </Card.Body>
@@ -76,7 +109,7 @@ const RegUserform = ({regid,startTime,endTime,sport}) => {
             </Card.Text>
             <Card.Footer>
             <Button variant="success">
-            <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
+            <Link to="/regbookslot" onClick={bookcric} style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
             </Button>
             </Card.Footer>
             </Card.Body>

@@ -34,13 +34,11 @@ function App() {
           type:"SET_USER",
           data: null,
         })
-
       }
-
+      
     })
 
   },[user])
-  console.log("user is",user);
 
   return (
     <div className="bg">
