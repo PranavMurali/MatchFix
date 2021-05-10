@@ -37,9 +37,9 @@ const Profile = () => {
                 <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Date</th>
+                    <th>Email</th>
+                    <th>Register Number</th>
                     <th>Sport</th>
-                    <th>Time Slot</th>
                     <th>Number of players</th>
                 </tr>
                 </thead>
@@ -49,9 +49,9 @@ const Profile = () => {
                     <tr>
                         <td>{i+1}</td>
                         <td>{data.email}</td>
+                        <td>{data.regno}</td>
                         <td>{data.sport}</td>
                         <td>{data.players}</td>
-                        <td>{data.regno}</td>
                     </tr>
                 ))}
                 </tbody>

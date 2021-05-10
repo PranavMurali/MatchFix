@@ -14,7 +14,8 @@ const RegUserform = () => {
     const createSlot = async (e)=>{
         e.preventDefault();
         const ran= Math.floor(Math.random()*1000000);
-        const slot={sport,players,regno}
+        const email=user?.email;
+        const slot={sport,players,regno,email}
         let hist;
         hist=await db.collection("Booking").doc("Slots").get()
         hist = hist.data()
