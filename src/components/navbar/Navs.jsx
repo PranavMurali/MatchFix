@@ -18,7 +18,6 @@ const Navs = () => {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-        <Nav.Link href="/guest" className="navlink">{user ? "Book for a Friend" : "Guest Register"}</Nav.Link>
         <NavDropdown title="Facilities" id="basic-nav-dropdown" style={{textDecoration:"none",color:"white"}}>
             <NavDropdown.Item href="/football">Football</NavDropdown.Item>
             <NavDropdown.Item href="/basketball">Basketball</NavDropdown.Item>
@@ -33,7 +32,7 @@ const Navs = () => {
             </Nav.Item>
             <NavDropdown href={!user && "/login" } title={!user ? 'Sign in' : user.email} id="basic-nav-dropdown" style={{textDecoration:"none",color:"white"}}>
                 <NavDropdown.Item href={!user ? "/login" : "/profile"}>{!user ?  "You've got" : 'Profile'}</NavDropdown.Item>
-                <NavDropdown.Item href={!user ? "/login" : "/user"}>{!user ?  ' to ' : 'Book'}</NavDropdown.Item>
+                <NavDropdown.Item href={!user ? "/login" : "/userbooking"}>{!user ?  ' to ' : 'Book'}</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/login" onClick={logout}>{!user ? 'Sign in' : 'Sign out'}</NavDropdown.Item>
             </NavDropdown>
