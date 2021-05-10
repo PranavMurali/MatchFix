@@ -1,9 +1,23 @@
-import React from 'react'
+import {React,useState,useEffect} from 'react'
 import {useStateValue} from "../../StateProvider"
 import {Jumbotron,Container,Table,Card} from "react-bootstrap"
 import "./styles.css"
+import {db} from "../../firebase"
 const Profile = () => {
     const[{user},] = useStateValue();
+    const[sd,setSd]= useState([]);
+
+    useEffect(() => {
+        fetchSlots();
+    }, [])
+    
+    const fetchSlots = async ()=>{
+        const sds=await db.collection("Booking").doc("Slots").get()
+        setSd(sds.data().slotlist)
+        console.log(sds.data().slotlist)
+        
+    }
+    
     return (
         <>
         <Jumbotron fluid className="jumboprof">
@@ -30,20 +44,16 @@ const Profile = () => {
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1/5/21</td>
-                    <td>Football</td>
-                    <td>3:30-4:30</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                <td>1</td>
-                    <td>2/5/21</td>
-                    <td>Cricket</td>
-                    <td>3:30-4:30</td>
-                    <td>22</td>
-                </tr>
+                {sd.length &&
+                sd.map((data,i)=>(
+                    <tr>
+                        <td>{i+1}</td>
+                        <td>{data.email}</td>
+                        <td>{data.sport}</td>
+                        <td>{data.players}</td>
+                        <td>{data.regno}</td>
+                    </tr>
+                ))}
                 </tbody>
                 </Table>
             </Card.Text>

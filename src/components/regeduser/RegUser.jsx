@@ -1,29 +1,36 @@
 import {React,useState} from 'react'
-import { Button, Form, Col,Jumbotron,Container,Dropdown,DropdownButton} from 'react-bootstrap'
+import { Button, Form, Col,Jumbotron,Container} from 'react-bootstrap'
 import './styles.css'
 import {Link} from "react-router-dom"; 
-import {useStateValue} from "../../StateProvider";
-import {firebase} from "../../firebase"
+import {db} from "../../firebase"
 const RegUserform = () => {
     const [sport,setSport] =useState('');
     const [email, setEmail] = useState('');
     const [slot,setSlot] =useState('');
     const [regno, setRegno] = useState('');
     const [players, setPlayers] = useState('');
-
-    const createSlot = (e) =>{
+    const [validated, setValidated] = useState(false);
+    const createSlot = async (e)=>{
         e.preventDefault();
-        const slotRef =firebase.database().ref("Slots");
-        const slots ={
-            slot,
-            sport,
-            regno,
-            email,
-            done: false,
-            players,
-        };
-        slotRef.push(slots);
-        console.log(slots)
+        const ran= Math.floor(Math.random()*1000000);
+        const slot={sport,players,regno,email}
+        let hist;
+        hist=await db.collection("Booking").doc("Slots").get()
+        hist = hist.data()
+        let slotlist = hist.slotlist
+        slotlist.push(slot)
+        
+        //let slotlist=[]
+        //slotlist.push(slot)
+        db.collection("Booking").doc("Slots").set({
+            slotlist
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
     }
 
     return (
@@ -43,17 +50,17 @@ const RegUserform = () => {
                 <Form.Label>Name</Form.Label>
                 <Form.Row>
                 <Col>
-                    <Form.Control placeholder="First name" />
+                    <Form.Control required placeholder="First name" />
                 </Col>
                 <Col>
-                    <Form.Control placeholder="Last name" />
+                    <Form.Control required placeholder="Last name" />
                 </Col>
                 </Form.Row>
             </Form.Group>
             
             <Form.Group>
                 <Form.Label>Email address</Form.Label>
-                <Form.Control value={email} onChange={event=>setEmail(event.target.value)} type="email" placeholder="Enter email" isInvalid="true" />
+                <Form.Control required  onChange={event=>setEmail(event.target.value)} type="email" placeholder="Enter email" />
                 <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
                 </Form.Text>
@@ -61,29 +68,33 @@ const RegUserform = () => {
 
             <Form.Group>
                 <Form.Label>Register Number</Form.Label>
-                <Form.Control value={regno} onChange={event=>setRegno(event.target.value)} type="text" placeholder="Enter Register Number" />
+                <Form.Control required onChange={event=>setRegno(event.target.value)} type="text" placeholder="Enter Register Number" />
             </Form.Group>
 
             <Form.Group>
                 <Form.Label>Number of players</Form.Label>
-                <Form.Control value={regno} onChange={event=>setRegno(event.target.value)} type="text" placeholder="Enter Number of players" />
+                <Form.Control required onChange={event=>setPlayers(event.target.value)} type="number" placeholder="Enter Number of players" />
             </Form.Group>
             
         </Form.Group>
 
-        <DropdownButton id="dropdown-basic-button" variant="info" title="Sport">
-        <Dropdown.Item onClick={()=>{setSport("Football")}}>Football</Dropdown.Item>
-        <Dropdown.Item onClick={()=>{setSport("Basketball")}}>Basketball</Dropdown.Item>
-        <Dropdown.Item onClick={()=>{setSport("Cricket")}}>Cricket</Dropdown.Item>
-        <Dropdown.Item onClick={()=>{setSport("Chess")}}>Chess</Dropdown.Item>
-        <Dropdown.Item onClick={()=>{setSport("Table Tennis")}}>Table Tennis</Dropdown.Item>
-        <Dropdown.Item onClick={()=>{setSport("Tennis")}}>Tennis</Dropdown.Item>
-        <Dropdown.Item onClick={()=>{setSport("Volleyball")}}>Volleyball</Dropdown.Item>
-        <Dropdown.Item onClick={()=>{setSport("Badminton")}}>Badminton</Dropdown.Item>
-        </DropdownButton>
+        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+        Choose Sport
+        </Form.Label>
+        <Form.Control onChange={(e)=>{setSport(e.target.value)}} required  as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
+            <option >Choose..</option>
+            <option value="Football">Football</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Cricket">Cricket</option>
+            <option value="Chess">Chess</option>
+            <option value="Table Tennis">Table Tennis</option>
+            <option value="Tennis">Tennis</option>
+            <option value="Volleyball">Volleyball</option>
+            <option value="Badminton">Badminton</option>
+        </Form.Control>
 
         <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Allot to any field" />
+            <Form.Check required type="checkbox" label="I confirm my booking." />
         </Form.Group>
         
         <Button variant="dark" type="submit" onClick={createSlot}>
@@ -96,8 +107,6 @@ const RegUserform = () => {
             <Link to="/login" style={{textDecoration: "none",color:"white" }}>Have an account?  Login</Link>
         </Button>
         </Form>
-
-    
 
         </>
     )
