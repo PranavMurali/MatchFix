@@ -1,11 +1,12 @@
 import {React,useState} from 'react'
 import { Button, Form, Col,Jumbotron,Container} from 'react-bootstrap'
 import './styles.css'
+import {useStateValue} from "../../StateProvider"
 import {Link} from "react-router-dom"; 
 import {db} from "../../firebase"
 const RegUserform = () => {
+    const[{user},] = useStateValue();
     const [sport,setSport] =useState('');
-    const [email, setEmail] = useState('');
     const [slot,setSlot] =useState('');
     const [regno, setRegno] = useState('');
     const [players, setPlayers] = useState('');
@@ -13,7 +14,7 @@ const RegUserform = () => {
     const createSlot = async (e)=>{
         e.preventDefault();
         const ran= Math.floor(Math.random()*1000000);
-        const slot={sport,players,regno,email}
+        const slot={sport,players,regno}
         let hist;
         hist=await db.collection("Booking").doc("Slots").get()
         hist = hist.data()
@@ -57,15 +58,7 @@ const RegUserform = () => {
                 </Col>
                 </Form.Row>
             </Form.Group>
-            
-            <Form.Group>
-                <Form.Label>Email address</Form.Label>
-                <Form.Control required  onChange={event=>setEmail(event.target.value)} type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-                </Form.Text>
-            </Form.Group>
-
+        
             <Form.Group>
                 <Form.Label>Register Number</Form.Label>
                 <Form.Control required onChange={event=>setRegno(event.target.value)} type="text" placeholder="Enter Register Number" />
