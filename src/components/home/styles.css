@@ -1,6 +1,77 @@
-.Caro {
-    width:900px;
-    height:500px;
-    margin: auto;
-    
+.imghome{
+    display: block;
+    margin-top:2%;
+    margin-left: 57% !important;
+}
+
+.lefthome{
+    background-color:rgba(0, 79.00750368833542, 151.93750709295273, 1);
+	width:965px;
+	height:615px;
+	position:absolute;
+	left:935px;
+    right: 0px;
+	top:628px;
+}
+.righthome{
+    background-color:rgba(239.0625, 239.0625, 239.0625, 1);
+    width:965px;
+	height:615px;
+	position:absolute;
+	right: 935px;
+    left: 0px;
+	top:628px;
+}
+
+.ringcenter{
+    width: 340px;
+    height: 340px;
+    position: absolute;
+    left: 782px;
+    top: 756px;
+    z-index: 2;
+    margin-left: 1%;
+}
+
+div {
+    display: block;
+}
+
+.p1 {
+    color:rgba(0, 0, 0, 1);
+	width:634px;
+	height:241px;
+	position:absolute;
+	left:346px;
+	top:268px;
+	font-family:Poppins;
+	text-align:left;
+	font-size:70px;
+	letter-spacing:0.5;
+}
+
+.p2{
+    transform: rotate(0.12360461492520917deg);
+	color:rgba(132.8124949336052, 132.8124949336052, 132.8124949336052, 1);
+	width:462.36578369140625px;
+	height:46.78660583496094px;
+	position:absolute;
+	left:354.1009216308594px;
+	top:231px;
+	font-family:Poppins;
+	text-align:left;
+	font-size:23px;
+	letter-spacing:5.5;
+}
+
+.p3{
+    color:rgb(0, 0, 0);
+    padding-left: 23%;
+    padding-top: 20%;
+	position:absolute;
+	font-family:Poppins;
+	text-align:left;
+	font-size:26px;
+	letter-spacing:0.5;
+    z-index: 4;
 }

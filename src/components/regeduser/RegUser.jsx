@@ -13,9 +13,9 @@ const RegUserform = () => {
     const [validated, setValidated] = useState(false);
     const createSlot = async (e)=>{
         e.preventDefault();
-        const ran= Math.floor(Math.random()*1000000);
+        const id= Math.floor(Math.random()*1000000);
         const email=user?.email;
-        const slot={sport,players,regno,email}
+        const slot={sport,players,regno,email,id}
         let hist;
         hist=await db.collection("Booking").doc("Slots").get()
         hist = hist.data()

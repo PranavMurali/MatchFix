@@ -37,8 +37,7 @@ const Profile = () => {
                 <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Email</th>
-                    <th>Register Number</th>
+                    <th>Booking ID</th>
                     <th>Sport</th>
                     <th>Number of players</th>
                 </tr>
@@ -48,8 +47,7 @@ const Profile = () => {
                 sd.map((data,i)=>(
                     <tr>
                         <td>{i+1}</td>
-                        <td>{data.email}</td>
-                        <td>{data.regno}</td>
+                        <td>{data.id}</td>
                         <td>{data.sport}</td>
                         <td>{data.players}</td>
                     </tr>
