@@ -6,7 +6,7 @@ const Basket = () => {
     return (
         <Jumbotron fluid className="jumbo_bb">
         <Container>
-            <h1>Fluid jumbotron</h1>
+            <h1>Basketball</h1>
             <Figure>
             <Figure.Image
                 width={500}

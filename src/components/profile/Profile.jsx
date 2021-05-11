@@ -44,13 +44,17 @@ const Profile = () => {
                 </thead>
                 <tbody>
                 {sd.length &&
-                sd.map((data,i)=>(
+                
+                sd
+                .filter(s => s.email === user?.email)
+                .map((data,i)=>(
                     <tr>
                         <td>{i+1}</td>
                         <td>{data.id}</td>
                         <td>{data.sport}</td>
                         <td>{data.players}</td>
                     </tr>
+                    
                 ))}
                 </tbody>
                 </Table>

@@ -92,7 +92,7 @@ const RegUserform = () => {
         </Form.Group>
         
         <Button variant="dark" type="submit" onClick={createSlot}>
-            Book Slot
+            <Link to="/" style={{textDecoration: "none",color:"white" }} >Book Slot</Link>
         </Button>
         <Button variant="success" className="butt">
             <Link to="/signup" style={{textDecoration: "none",color:"white" }}>Signup</Link>

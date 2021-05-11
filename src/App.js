@@ -13,6 +13,7 @@ import { useStateValue } from "./StateProvider";
 import {auth} from "./firebase"
 import Profile from "./components/profile/Profile";
 import "./App.css"
+import Admin from "./components/admin/Admin";
 
 function App() {
   const[{user},dispatch]=useStateValue();
@@ -56,7 +57,6 @@ function App() {
           <Profile/>
         </Route>
 
-        
         <Route path="/football" exact>
           <Football />
         </Route>
@@ -79,6 +79,10 @@ function App() {
 
         <Route path="/userbooking" exact>
           <RegUserform/>
+        </Route>
+        
+        <Route path="/admin" exact>
+          <Admin/>
         </Route>
 
       </Switch> 
