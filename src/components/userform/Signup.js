@@ -35,10 +35,10 @@ const Sigform = () => {
             <Form.Label>Name</Form.Label>
             <Form.Row>
             <Col>
-                <Form.Control placeholder="First name" />
+                <Form.Control required placeholder="First name" />
             </Col>
             <Col>
-                <Form.Control placeholder="Last name" />
+                <Form.Control required placeholder="Last name" />
             </Col>
             </Form.Row>
         </Form.Group>
@@ -53,7 +53,7 @@ const Sigform = () => {
 
         <Form.Group>
             <Form.Label>Register Number</Form.Label>
-            <Form.Control type="text" placeholder="Enter Register Number" />
+            <Form.Control required type="text" placeholder="Enter Register Number" />
             <Form.Text className="text-muted">
             We'll never share your email with anyone else.
             </Form.Text>
@@ -63,6 +63,7 @@ const Sigform = () => {
     <Form.Group>
     <Form.Label htmlFor="inputPassword6">Password</Form.Label>
     <Form.Control
+        required
         type="password"
         id="inputPassword6"
         aria-describedby="passwordHelpInline"
@@ -73,12 +74,8 @@ const Sigform = () => {
     </Form.Text>
     </Form.Group>
 
-    <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Remember Me" />
-    </Form.Group>
-
     <Button variant="success" className="butt">
-        <Link onClick={register} to="/home" style={{textDecoration: "none",color:"white" }}>Signup</Link>
+        <Link onClick={register} to="/" style={{textDecoration: "none",color:"white" }}>Signup</Link>
     </Button>
     <Button variant="dark" className="butt">
         <Link to="/guest" style={{textDecoration: "none",color:"white"}}>Don't want to Signup?</Link>

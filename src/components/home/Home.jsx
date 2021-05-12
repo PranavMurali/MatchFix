@@ -1,46 +1,33 @@
 import React from 'react'
-import {Carousel} from 'react-bootstrap'
-import foot from "./img/football.jpg"
-import bball from "./img/bball.jpg"
-import cricket from "./img/cricket.jpg"
+import foot from "./img/Footbal.svg"
+import "./styles.css"
+import ring from "./img/Ring.svg"
 const Home = () => {
     return (
-        <Carousel className="Caro">
-        <Carousel.Item style={{'height':"300px"}}>
-            <img
-            style={{'height':"300px"}}
-            className="d-block w-100"
-            src={foot}
-            alt="First slide"
-            />
-            <Carousel.Caption>
-            <h3>Football</h3>
-            </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item style={{'height':"300px"}}>
-            <img
-            style={{'height':"300px"}}
-            className="d-block w-100"
-            src={cricket}
-            alt="Second slide"
-            />
+        <>
+        <span class="p2">Fixing your matches</span>
+        <h1 className="p1">
+            Never miss a match!
+        </h1>
+        <div className="imghome">
+            <img src={foot} alt="Home" />
+        </div>
+        <div className="lefthome">
+        <span class="p3">Lorem ipsum dolor sit amet, consect
+        etur adipiscing elit. Aliquet suspendisse magna et purus hac
+        et vitae morbi at. Porttitor diam nisl feugiat posuere. Pos
+        uere sed est, risus, et etiam turpis eget in. Et gravida nec du
+        is ultrices bibendum.</span>
 
-            <Carousel.Caption>
-            <h3>Cricket</h3>
-            </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item style={{'height':"300px"}}>
-            <img
-            style={{'height':"300px"}}
-            className="d-block w-100"
-            src={bball}
-            alt="Third slide"
-            />
-            <Carousel.Caption>
-            <h3>Basketball</h3>
-            </Carousel.Caption>
-        </Carousel.Item>
-        </Carousel>
+        </div>
+        <div className="ringcenter">
+            <img src={ring} alt="ring"/>
+        </div>
+        <div className="righthome">  
+            "npo"
+        </div>
+        
+        </>
     )
 }
 

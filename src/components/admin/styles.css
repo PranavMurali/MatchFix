@@ -1,0 +1,7 @@
+.danger{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-left: 30%;
+    margin-top: 5%;
+    width: 800px;
+}

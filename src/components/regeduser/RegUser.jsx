@@ -1,89 +1,120 @@
-import {React} from 'react'
-import {Jumbotron,Container,CardColumns,Card,Button} from 'react-bootstrap'
+import {React,useState} from 'react'
+import { Button, Form, Col,Jumbotron,Container} from 'react-bootstrap'
 import './styles.css'
+import {useStateValue} from "../../StateProvider"
 import {Link} from "react-router-dom"; 
-import foot from "./img/football.jpg"
-import bball from "./img/bball.jpg"
-import cricket from "./img/cricket.jpg"
-import more from "./img/more.jpg"
-import {useStateValue} from "../../StateProvider";
-const RegUserform = ({regid,startTime,endTime,sport}) => {
-    const[{user},dispatch] = useStateValue();
+import {db} from "../../firebase"
+const RegUserform = () => {
+    const[{user},] = useStateValue();
+    const [sport,setSport] =useState('');
+    const [slot,setSlot] =useState('');
+    const [regno, setRegno] = useState('');
+    const [players, setPlayers] = useState('');
+    const [equip, setEquip] = useState('No');
+    const [validated, setValidated] = useState(false);
+    
+    const createSlot = async (e)=>{
+
+        e.preventDefault();
+        const id= Math.floor(Math.random()*1000000);
+        const email=user?.email;
+        const slot={sport,players,regno,email,id,equip}
+        let hist;
+        hist=await db.collection("Booking").doc("Slots").get()
+        hist = hist.data()
+        let slotlist = hist.slotlist
+        slotlist.push(slot)
+        
+        //let slotlist=[]
+        //slotlist.push(slot)
+        db.collection("Booking").doc("Slots").set({
+            slotlist
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+    }
 
     return (
         <>
-        <Jumbotron fluid className="jumbo_reged">
-        <Container className="con_text">
-            <h1>Hello, {!user ? 'user' : user.email}</h1>
-            <p>
-            This is your personal slot booking screen.
-            </p>
-        </Container>
-        </Jumbotron>
+            <Jumbotron fluid className="jumbo_reg">
+            <Container>
+                <h1>Book your slots</h1>
+                <p>
+                This is your Booking area.
+                </p>
+            </Container>
+            </Jumbotron>
 
-        <CardColumns>
-        <Card>
-            <Card.Img variant="top" src={foot} />
-            <Card.Body>
-            <Card.Title>Football</Card.Title>
-            <Card.Text>
-                Book football.
-            </Card.Text>
-            <Card.Footer>
-            <Button variant="success">
-            <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
-            </Button>
-            </Card.Footer>
-            </Card.Body>
-        </Card>
+            <Form className="form" onSubmit={createSlot} >
+            <Form.Group controlId="formBasicEmail">
+            <Form.Group>
+                <Form.Label>Name</Form.Label>
+                <Form.Row>
+                <Col>
+                    <Form.Control required placeholder="First name" />
+                </Col>
+                <Col>
+                    <Form.Control required placeholder="Last name" />
+                </Col>
+                </Form.Row>
+            </Form.Group>
+        
+            <Form.Group>
+                <Form.Label>Register Number</Form.Label>
+                <Form.Control required onChange={event=>setRegno(event.target.value)} type="text" placeholder="Enter Register Number" />
+            </Form.Group>
 
-        <Card>
-            <Card.Img variant="top" src={bball} />
-            <Card.Body>
-            <Card.Title>Basketball</Card.Title>
-            <Card.Text>
-                book Basketball.
-            </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-            <Button variant="success">
-            <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
-            </Button>
-            </Card.Footer>
-        </Card>
+            <Form.Group>
+                <Form.Label>Number of players</Form.Label>
+                <Form.Control required onChange={event=>setPlayers(event.target.value)} type="number" placeholder="Enter Number of players" />
+            </Form.Group>
+            
+        </Form.Group>
 
-        <Card>
-            <Card.Img variant="top" src={more} />
-            <Card.Body>
-            <Card.Title>More Sports</Card.Title>
-            <Card.Text>
-                Book more sports.
-            </Card.Text>
-            <Card.Footer>
-            <Button variant="success">
-            <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
-            </Button>
-            </Card.Footer>
-            </Card.Body>
-        </Card>
+        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+        Choose Sport
+        </Form.Label>
+        <Form.Control onChange={(e)=>{setSport(e.target.value)}} required  as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
+            <option >Choose..</option>
+            <option value="Football">Football</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Cricket">Cricket</option>
+            <option value="Chess">Chess</option>
+            <option value="Table Tennis">Table Tennis</option>
+            <option value="Tennis">Tennis</option>
+            <option value="Volleyball">Volleyball</option>
+            <option value="Badminton">Badminton</option>
+        </Form.Control>
 
-        <Card>
-            <Card.Img variant="top" src={cricket} />
-            <Card.Body>
-            <Card.Title>Cricket</Card.Title>
-            <Card.Text>
-                Book cricket.
-            </Card.Text>
-            <Card.Footer>
-            <Button variant="success">
-            <Link to="/regbookslot" style={{textDecoration: "none",color:"white" }}>Book Slot</Link>
-            </Button>
-            </Card.Footer>
-            </Card.Body>
-        </Card>
+        <Form.Group controlId="formBasicCheckbox">
+            <Form.Check required type="checkbox" label="I confirm my booking." />
+        </Form.Group>
 
-        </CardColumns>
-    </>
+        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+        Choose If Equipment needed
+        </Form.Label>
+        <Form.Control onChange={(e)=>{setEquip(e.target.value)}} required  as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
+            <option >Choose..</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </Form.Control>
+        
+        <Button variant="dark" type="submit" onClick={createSlot}>
+            <Link to="/" style={{textDecoration: "none",color:"white" }} >Book Slot</Link>
+        </Button>
+        <Button variant="success" className="butt">
+            <Link to="/signup" style={{textDecoration: "none",color:"white" }}>Signup</Link>
+        </Button>
+        <Button  className="butt">
+            <Link to="/login" style={{textDecoration: "none",color:"white" }}>Have an account?  Login</Link>
+        </Button>
+        </Form>
+
+        </>
     )
 }
 

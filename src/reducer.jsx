@@ -1,6 +1,9 @@
 export const initialState = {
     user: null,
-    slots: []
+    sport: null,
+    regid: null,
+    slots:[],
+    fields:[],
 };
 
 const reducer = (state, action) => {
@@ -15,6 +18,13 @@ const reducer = (state, action) => {
             return{
                 ...state,
                 slots:[action.data],
+            }
+        case 'SET_SPORT':
+            return{
+                ...state,
+                sport:action.data,
+                fields:action.list,
+
             }
         default:
             return state;

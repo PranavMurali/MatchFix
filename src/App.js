@@ -1,5 +1,4 @@
 import {useEffect} from "react"
-import Regform from "./components/form/Regform";
 import Sigform from "./components/userform/Signup";
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Navs from "./components/navbar/Navs";
@@ -10,11 +9,11 @@ import Basketball from "./components/basketball/Basket"
 import Cricket from "./components/cricket/Cricket"
 import Games from "./components/more/Games"
 import Login from "./components/login/Login";
-import Reguserbook from "./components/reguserform/Reguserbook"
 import { useStateValue } from "./StateProvider";
 import {auth} from "./firebase"
 import Profile from "./components/profile/Profile";
 import "./App.css"
+import Admin from "./components/admin/Admin";
 
 function App() {
   const[{user},dispatch]=useStateValue();
@@ -34,22 +33,17 @@ function App() {
           type:"SET_USER",
           data: null,
         })
-
       }
-
+      
     })
 
   },[user])
-  console.log("user is",user);
 
   return (
     <div className="bg">
       <Router>
       <Navs></Navs>
       <Switch>
-        <Route path="/guest" exact>
-          <Regform />
-        </Route>
 
         <Route path="/" exact>
           <Home/>
@@ -63,10 +57,6 @@ function App() {
           <Profile/>
         </Route>
 
-        <Route path="/user" exact>
-          <RegUserform/>
-        </Route>
-        
         <Route path="/football" exact>
           <Football />
         </Route>
@@ -87,8 +77,12 @@ function App() {
           <Login/>
         </Route>
 
-        <Route path="/regbookslot" exact>
-          <Reguserbook/>
+        <Route path="/userbooking" exact>
+          <RegUserform/>
+        </Route>
+        
+        <Route path="/admin" exact>
+          <Admin/>
         </Route>
 
       </Switch> 

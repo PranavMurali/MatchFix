@@ -5,6 +5,7 @@ import firebase from 'firebase';
 const firebaseConfig = {
     apiKey: "AIzaSyCEvy4oR-XQo2TtxlNdJLVB7XQTHv1wxbs",
     authDomain: "matchfix-392e0.firebaseapp.com",
+    databaseURL: "https://matchfix-392e0-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "matchfix-392e0",
     storageBucket: "matchfix-392e0.appspot.com",
     messagingSenderId: "1043817285661",
@@ -17,4 +18,4 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
 
-export {db, auth};
+export {db, auth, firebase}
