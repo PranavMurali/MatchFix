@@ -43,6 +43,7 @@ const Admin = () => {
                         <th>Email ID</th>
                         <th>Sport</th>
                         <th>Number of players</th>
+                        <th>Need Equipment</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -56,6 +57,7 @@ const Admin = () => {
                             <td>{data.email}</td>
                             <td>{data.sport}</td>
                             <td>{data.players}</td>
+                            <td>{data.equip}</td>
                         </tr>
                         
                     ))}

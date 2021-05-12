@@ -10,12 +10,15 @@ const RegUserform = () => {
     const [slot,setSlot] =useState('');
     const [regno, setRegno] = useState('');
     const [players, setPlayers] = useState('');
+    const [equip, setEquip] = useState('No');
     const [validated, setValidated] = useState(false);
+    
     const createSlot = async (e)=>{
+
         e.preventDefault();
         const id= Math.floor(Math.random()*1000000);
         const email=user?.email;
-        const slot={sport,players,regno,email,id}
+        const slot={sport,players,regno,email,id,equip}
         let hist;
         hist=await db.collection("Booking").doc("Slots").get()
         hist = hist.data()
@@ -90,6 +93,15 @@ const RegUserform = () => {
         <Form.Group controlId="formBasicCheckbox">
             <Form.Check required type="checkbox" label="I confirm my booking." />
         </Form.Group>
+
+        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+        Choose If Equipment needed
+        </Form.Label>
+        <Form.Control onChange={(e)=>{setEquip(e.target.value)}} required  as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
+            <option >Choose..</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </Form.Control>
         
         <Button variant="dark" type="submit" onClick={createSlot}>
             <Link to="/" style={{textDecoration: "none",color:"white" }} >Book Slot</Link>

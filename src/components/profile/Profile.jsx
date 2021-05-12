@@ -3,6 +3,7 @@ import {useStateValue} from "../../StateProvider"
 import {Jumbotron,Container,Table,Card} from "react-bootstrap"
 import "./styles.css"
 import {db} from "../../firebase"
+import {auth} from "../../firebase"
 const Profile = () => {
     const[{user},] = useStateValue();
     const[sd,setSd]= useState([]);
