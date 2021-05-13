@@ -42,9 +42,6 @@ const Login = () => {
         <Button variant="success" className="butt">
             <Link onClick={login} style={{textDecoration: "none",color:"white" }}>Login</Link>
         </Button>
-        <Button variant="dark" className="butt">
-            <Link to="/guest" style={{textDecoration: "none",color:"white"}}>Don't want to Login?</Link>
-        </Button>
         <Button  className="butt">
             <Link to="/signup" style={{textDecoration: "none",color:"white" }}>Need an account? Signup</Link>
         </Button>

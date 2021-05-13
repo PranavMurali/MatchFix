@@ -7,10 +7,11 @@ import {db} from "../../firebase"
 const RegUserform = () => {
     const[{user},] = useStateValue();
     const [sport,setSport] =useState('');
-    const [slot,setSlot] =useState('');
+    const [slots,setSlot] =useState('');
     const [regno, setRegno] = useState('');
     const [players, setPlayers] = useState('');
     const [equip, setEquip] = useState('No');
+    const [addp, setAddp] = useState('No');
     const [validated, setValidated] = useState(false);
     
     const createSlot = async (e)=>{
@@ -18,7 +19,7 @@ const RegUserform = () => {
         e.preventDefault();
         const id= Math.floor(Math.random()*1000000);
         const email=user?.email;
-        const slot={sport,players,regno,email,id,equip}
+        const slot={sport,players,regno,email,id,equip,addp,slots}
         let hist;
         hist=await db.collection("Booking").doc("Slots").get()
         hist = hist.data()
@@ -90,27 +91,47 @@ const RegUserform = () => {
             <option value="Badminton">Badminton</option>
         </Form.Control>
 
-        <Form.Group controlId="formBasicCheckbox">
-            <Form.Check required type="checkbox" label="I confirm my booking." />
-        </Form.Group>
+        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+        Slot
+        </Form.Label>
+        <Form.Control onChange={(e)=>{setSlot(e.target.value)}} required  as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
+            <option >Choose..</option>
+            <option value="9:00-10:00">9:00-10:00</option>
+            <option value="10:00-11:00">10:00-11:00</option>
+            <option value="11:00-12:00">11:00-12:00</option>
+            <option value="12:00-1:00">12:00-1:00</option>
+            <option value="1:00-2:00">1:00-2:00</option>
+            <option value="2:00-3:00">2:00-3:00</option>
+            <option value="3:00-4:00">3:00-4:00</option>
+            <option value="4:00-5:00">4:00-5:00</option>
+            <option value="5:00-6:00">5:00-6:00</option>
+            <option value="6:00-7:00">6:00-7:00</option>
+        </Form.Control>
 
         <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
-        Choose If Equipment needed
+        Choose if Equipment needed
         </Form.Label>
         <Form.Control onChange={(e)=>{setEquip(e.target.value)}} required  as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
             <option >Choose..</option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </Form.Control>
-        
+
+        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+        Choose if other players can join
+        </Form.Label>
+        <Form.Control onChange={(e)=>{setAddp(e.target.value)}} required  as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
+            <option >Choose..</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </Form.Control>
+
+        <Form.Group controlId="formBasicCheckbox">
+            <Form.Check required type="checkbox" label="I confirm my booking." />
+        </Form.Group>
+
         <Button variant="dark" type="submit" onClick={createSlot}>
             <Link to="/" style={{textDecoration: "none",color:"white" }} >Book Slot</Link>
-        </Button>
-        <Button variant="success" className="butt">
-            <Link to="/signup" style={{textDecoration: "none",color:"white" }}>Signup</Link>
-        </Button>
-        <Button  className="butt">
-            <Link to="/login" style={{textDecoration: "none",color:"white" }}>Have an account?  Login</Link>
         </Button>
         </Form>
 

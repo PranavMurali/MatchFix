@@ -77,9 +77,6 @@ const Sigform = () => {
     <Button variant="success" className="butt">
         <Link onClick={register} to="/" style={{textDecoration: "none",color:"white" }}>Signup</Link>
     </Button>
-    <Button variant="dark" className="butt">
-        <Link to="/guest" style={{textDecoration: "none",color:"white"}}>Don't want to Signup?</Link>
-    </Button>
     <Button  className="butt">
         <Link to="/login" style={{textDecoration: "none",color:"white" }}>Have an account?  Login</Link>
     </Button>

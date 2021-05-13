@@ -41,6 +41,7 @@ const Profile = () => {
                     <th>Booking ID</th>
                     <th>Sport</th>
                     <th>Number of players</th>
+                    <th>Slot</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,6 +55,7 @@ const Profile = () => {
                         <td>{data.id}</td>
                         <td>{data.sport}</td>
                         <td>{data.players}</td>
+                        <td>{data.slots}</td>
                     </tr>
                     
                 ))}

@@ -19,7 +19,9 @@ const Allslots = ({sd, id}) => {
                             <td>{data.email}</td>
                             <td>{data.sport}</td>
                             <td>{data.players}</td>
+                            <td>{data.slots}</td>
                             <td>{data.equip}</td>
+                            <td>{data.addp}</td>
                         </tr>
         ))}
         </>
@@ -40,7 +42,10 @@ const Filteredslots = ({sd, metric, id}) => {
                             <td>{data.email}</td>
                             <td>{data.sport}</td>
                             <td>{data.players}</td>
+                            <td>{data.slots}</td>
                             <td>{data.equip}</td>
+                            <td>{data.addp}</td>
+                            
                         </tr>
         ))}
         </>
@@ -75,16 +80,19 @@ const Admin = () => {
             </Jumbotron>
             <div className="tables">
             <Form>
+            <Form.Label>Enter Filter Metric</Form.Label>
                 <Form.Control onChange={(e)=>{setMetric(e.target.value)}} required  as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
                     <option >Choose a filter..</option>
                     <option value="regno">Register Number</option>
                     <option value="email">Email</option>
                     <option value="sport">Sport</option>
                     <option value="equip">Equipment Need</option>
+                    <option value="addp">Other players allowed</option>
+                    <option value="slot">Slot</option>
                 </Form.Control>
                 <Form.Group>
-                    <Form.Label>Register Number</Form.Label>
-                    <Form.Control required onChange={event=>setId(event.target.value)} type="text" placeholder="Enter Register Number" />
+                    <Form.Label>Enter Filter Id</Form.Label>
+                    <Form.Control required onChange={event=>setId(event.target.value)} type="text" placeholder="Enter filter id" />
                 </Form.Group>
                 <Button variant="warning" onClick={()=>{setMetric("")}} >
                     Reset Filters
@@ -104,7 +112,9 @@ const Admin = () => {
                         <th>Email ID</th>
                         <th>Sport</th>
                         <th>Number of players</th>
+                        <th>Slot</th>
                         <th>Need Equipment</th>
+                        <th>Allow other players</th>
                     </tr>
                     </thead>
                     <tbody>
