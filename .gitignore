@@ -25,3 +25,4 @@ yarn-error.log*
 .github/workflows/firebase-hosting-merge.yml
 .github/workflows/firebase-hosting-pull-request.yml
 .firebaserc
+.well-known/brave-rewards-verification.txt
