@@ -14,12 +14,10 @@ const Profile = () => {
     
     const fetchSlots = async ()=>{
         const sds=await db.collection("Booking").doc("Slots").get()
-        setSd(sds.data().slotlist)
-        console.log(sds.data().slotlist)
-        
+        setSd(sds.data().slotlist)        
     }
     
-    return (
+    return ( 
         <>
         <Jumbotron fluid className="jumboprof">
         <Container>
@@ -57,7 +55,6 @@ const Profile = () => {
                         <td>{data.players}</td>
                         <td>{data.slots}</td>
                     </tr>
-                    
                 ))}
                 </tbody>
                 </Table>

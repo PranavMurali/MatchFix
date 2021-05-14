@@ -1,9 +1,10 @@
-import {React,useState} from 'react'
-import { Button, Form, Col,Jumbotron,Container} from 'react-bootstrap'
+import {React,useState,useEffect} from 'react'
+import { Button, Form, Col,Jumbotron,Container,Toast} from 'react-bootstrap'
 import './styles.css'
 import {useStateValue} from "../../StateProvider"
 import {Link} from "react-router-dom"; 
 import {db} from "../../firebase"
+
 const RegUserform = () => {
     const[{user},] = useStateValue();
     const [sport,setSport] =useState('');
@@ -13,9 +14,29 @@ const RegUserform = () => {
     const [equip, setEquip] = useState('No');
     const [addp, setAddp] = useState('No');
     const [validated, setValidated] = useState(false);
+    const [timeses,setTimeses] =useState([]);
+    let sd=[];
+    let timeleft=[];
+    let times=["9:00-10:00","10:00-11:00","11:00-12:00","12:00-1:00","1:00-2:00","2:00-3:00","3:00-4:00","4:00-5:00"]
+    useEffect(() => {
+        fetchSlots();
+    }, [])
+
+    const fetchSlots = async ()=>{
+        const sds=await db.collection("Booking").doc("Slots").get()
+        var i;
+        for(i=0;i<sds.data().slotlist.length;i++){
+            sd.push(sds.data().slotlist[i].slots)
+        }
+        for(i=0;i<times.length;i++){
+            if(!sd.includes(times[i])){
+                timeleft.push(times[i])
+            }
+        }
+        setTimeses(timeleft);
+    }
     
     const createSlot = async (e)=>{
-
         e.preventDefault();
         const id= Math.floor(Math.random()*1000000);
         const email=user?.email;
@@ -96,16 +117,7 @@ const RegUserform = () => {
         </Form.Label>
         <Form.Control onChange={(e)=>{setSlot(e.target.value)}} required  as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
             <option >Choose..</option>
-            <option value="9:00-10:00">9:00-10:00</option>
-            <option value="10:00-11:00">10:00-11:00</option>
-            <option value="11:00-12:00">11:00-12:00</option>
-            <option value="12:00-1:00">12:00-1:00</option>
-            <option value="1:00-2:00">1:00-2:00</option>
-            <option value="2:00-3:00">2:00-3:00</option>
-            <option value="3:00-4:00">3:00-4:00</option>
-            <option value="4:00-5:00">4:00-5:00</option>
-            <option value="5:00-6:00">5:00-6:00</option>
-            <option value="6:00-7:00">6:00-7:00</option>
+            {timeses.map(data =>(<option value={data}>{data}</option>))}
         </Form.Control>
 
         <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
