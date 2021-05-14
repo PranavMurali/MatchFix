@@ -4,6 +4,7 @@ import './styles.css'
 import {useStateValue} from "../../StateProvider"
 import {Link} from "react-router-dom"; 
 import {db} from "../../firebase"
+import DatePicker from 'react-date-picker';
 
 const RegUserform = () => {
     const[{user},] = useStateValue();
@@ -15,15 +16,20 @@ const RegUserform = () => {
     const [addp, setAddp] = useState('No');
     const [validated, setValidated] = useState(false);
     const [timeses,setTimeses] =useState([]);
+    const [date,setDate] =useState(new Date());
     let sd=[];
     let timeleft=[];
     let times=["9:00-10:00","10:00-11:00","11:00-12:00","12:00-1:00","1:00-2:00","2:00-3:00","3:00-4:00","4:00-5:00"]
+    let days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+
     useEffect(() => {
         fetchSlots();
     }, [])
 
     const fetchSlots = async ()=>{
         const sds=await db.collection("Booking").doc("Slots").get()
+        const asd= sds.data().slotlist.filter(s => s.dates === "15-5-2021")
+        console.log(asd)
         var i;
         for(i=0;i<sds.data().slotlist.length;i++){
             sd.push(sds.data().slotlist[i].slots)
@@ -40,7 +46,11 @@ const RegUserform = () => {
         e.preventDefault();
         const id= Math.floor(Math.random()*1000000);
         const email=user?.email;
-        const slot={sport,players,regno,email,id,equip,addp,slots}
+        const day= String(date.getDate())
+        const month= String(date.getMonth()+1)
+        const year=String(date.getFullYear());
+        const dates=day+"-"+month+"-"+year
+        const slot={sport,players,regno,email,id,equip,addp,slots,dates}
         let hist;
         hist=await db.collection("Booking").doc("Slots").get()
         hist = hist.data()
@@ -111,9 +121,21 @@ const RegUserform = () => {
             <option value="Volleyball">Volleyball</option>
             <option value="Badminton">Badminton</option>
         </Form.Control>
+        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+        Choose Date
+        </Form.Label>
+        <br/>
+        <DatePicker
+        required
+        name="Booking Date"
+        format="y-MM-dd"
+        onChange={setDate}
+        value={date}
+        />
+        <p>{date.getDay() ? days[date.getDay()-1] : null}, {date.getDate()}-{date.getMonth()+1}-{date.getFullYear()}</p>
 
         <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
-        Slot
+        Choose Slot
         </Form.Label>
         <Form.Control onChange={(e)=>{setSlot(e.target.value)}} required  as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
             <option >Choose..</option>

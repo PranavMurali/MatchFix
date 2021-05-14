@@ -36,6 +36,7 @@ const Profile = () => {
                 <thead>
                 <tr>
                     <th>No.</th>
+                    <th>Date</th>
                     <th>Booking ID</th>
                     <th>Sport</th>
                     <th>Number of players</th>
@@ -50,6 +51,7 @@ const Profile = () => {
                 .map((data,i)=>(
                     <tr>
                         <td>{i+1}</td>
+                        <td>{data.dates}</td>
                         <td>{data.id}</td>
                         <td>{data.sport}</td>
                         <td>{data.players}</td>
