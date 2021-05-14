@@ -97,7 +97,7 @@ const RegUserform = () => {
         
             <Form.Group>
                 <Form.Label>Register Number</Form.Label>
-                <Form.Control required onChange={event=>setRegno(event.target.value)} type="text" placeholder="Enter Register Number" />
+                <Form.Control required onChange={event=>setRegno(event.target.value)} style={{textTransform:'uppercase'}} type="text" placeholder="yyDEGXXXX" />
             </Form.Group>
 
             <Form.Group>

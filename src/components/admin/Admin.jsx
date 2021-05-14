@@ -15,6 +15,7 @@ const Allslots = ({sd, id}) => {
                         <tr>
                             <td>{i+1}</td>
                             <td>{data.id}</td>
+                            <td>{data.dates}</td>
                             <td>{data.regno}</td>
                             <td>{data.email}</td>
                             <td>{data.sport}</td>
@@ -38,6 +39,7 @@ const Filteredslots = ({sd, metric, id}) => {
                         <tr>
                             <td>{i+1}</td>
                             <td>{data.id}</td>
+                            <td>{data.dates}</td>
                             <td>{data.regno}</td>
                             <td>{data.email}</td>
                             <td>{data.sport}</td>
@@ -89,6 +91,7 @@ const Admin = () => {
                     <option value="equip">Equipment Need</option>
                     <option value="addp">Other players allowed</option>
                     <option value="slot">Slot</option>
+                    <option value="dates">Date</option>
                 </Form.Control>
                 <Form.Group>
                     <Form.Label>Enter Filter Id</Form.Label>
@@ -108,6 +111,7 @@ const Admin = () => {
                     <tr>
                         <th>No.</th>
                         <th>Booking ID</th>
+                        <th>Date</th>
                         <th>Regno</th>
                         <th>Email ID</th>
                         <th>Sport</th>
