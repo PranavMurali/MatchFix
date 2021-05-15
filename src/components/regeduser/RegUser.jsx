@@ -22,17 +22,17 @@ const RegUserform = () => {
     let times=["9:00-10:00","10:00-11:00","11:00-12:00","12:00-1:00","1:00-2:00","2:00-3:00","3:00-4:00","4:00-5:00"]
     let days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 
-    useEffect(() => {
-        fetchSlots();
-    }, [])
-
     const fetchSlots = async ()=>{
         const sds=await db.collection("Booking").doc("Slots").get()
-        const asd= sds.data().slotlist.filter(s => s.dates === "15-5-2021")
-        console.log(asd)
+        const day= String(date.getDate())
+        const month= String(date.getMonth()+1)
+        const year=String(date.getFullYear());
+        const dates=day+"-"+month+"-"+year
+        const asd= sds.data().slotlist.filter(s => s.dates === dates && s.sport === sport)
+        console.log("tds",asd[0])
         var i;
-        for(i=0;i<sds.data().slotlist.length;i++){
-            sd.push(sds.data().slotlist[i].slots)
+        for(i=0;i<asd.length;i++){
+            sd.push(asd[i].slots)
         }
         for(i=0;i<times.length;i++){
             if(!sd.includes(times[i])){
@@ -132,8 +132,10 @@ const RegUserform = () => {
         onChange={setDate}
         value={date}
         />
-        <p>{date.getDay() ? days[date.getDay()-1] : null}, {date.getDate()}-{date.getMonth()+1}-{date.getFullYear()}</p>
-
+        <Button variant="success" onClick={fetchSlots}>
+            <Link style={{textDecoration: "none",color:"white" }} >Confirm Date</Link>
+        </Button>
+        <br/>
         <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
         Choose Slot
         </Form.Label>
