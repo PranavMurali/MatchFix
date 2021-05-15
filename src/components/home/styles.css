@@ -1,6 +1,6 @@
 .imghome{
     display: block;
-    margin-top:2%;
+    margin-top:-300px;
     margin-left: 57% !important;
 }
 
@@ -39,7 +39,7 @@ div {
 .p1 {
     color:rgba(0, 0, 0, 1);
 	width:634px;
-	height:241px;
+	height:100px;
 	position:absolute;
 	left:346px;
 	top:268px;
@@ -64,7 +64,7 @@ div {
 }
 
 .p3{
-    color:rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
     padding-left: 23%;
     padding-top: 20%;
 	position:absolute;
@@ -73,4 +73,20 @@ div {
 	font-size:26px;
 	letter-spacing:0.5;
     z-index: 4;
+}
+
+.butmain{
+	margin-top: 300px;
+	margin-left: 352px;
+	z-index: 100;
+}
+
+.cardlink{
+	margin-top:100px;
+	margin-left: 100px;
+}
+
+.buttonmain{
+	background-color:rgba(0, 79.00750368833542, 151.93750709295273, 1);
+	border-radius: 50px;
 }

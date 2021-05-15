@@ -1,5 +1,5 @@
-import {React,useState,useEffect} from 'react'
-import { Button, Form, Col,Jumbotron,Container,Toast} from 'react-bootstrap'
+import {React,useState} from 'react'
+import { Button, Form, Col,Jumbotron,Container} from 'react-bootstrap'
 import './styles.css'
 import {useStateValue} from "../../StateProvider"
 import {Link} from "react-router-dom"; 
@@ -14,13 +14,11 @@ const RegUserform = () => {
     const [players, setPlayers] = useState('');
     const [equip, setEquip] = useState('No');
     const [addp, setAddp] = useState('No');
-    const [validated, setValidated] = useState(false);
     const [timeses,setTimeses] =useState([]);
     const [date,setDate] =useState(new Date());
     let sd=[];
     let timeleft=[];
     let times=["9:00-10:00","10:00-11:00","11:00-12:00","12:00-1:00","1:00-2:00","2:00-3:00","3:00-4:00","4:00-5:00"]
-    let days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 
     const fetchSlots = async ()=>{
         const sds=await db.collection("Booking").doc("Slots").get()

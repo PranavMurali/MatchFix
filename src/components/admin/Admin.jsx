@@ -55,7 +55,7 @@ const Filteredslots = ({sd, metric, id}) => {
 }
 
 const Admin = () => {
-    const[{user},dispatch]=useStateValue("");
+    const[{user}]=useStateValue("");
     const[sd,setSd]= useState([]);
     const[metric,setMetric]=useState("");
     const[id,setId]=useState("");
@@ -135,7 +135,7 @@ const Admin = () => {
     else {
         return(
             <div >
-                <img className="danger" src={danger}/>
+                <img className="danger" alt="No no no" src={danger}/>
             </div>
         )
     }
