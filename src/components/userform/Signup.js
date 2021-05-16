@@ -45,7 +45,7 @@ const Sigform = () => {
         
         <Form.Group>
             <Form.Label>Email address</Form.Label>
-            <Form.Control onChange={event=>setEmail(event.target.value)} type="email" placeholder="Enter email" isInvalid="true" />
+            <Form.Control onChange={event=>setEmail(event.target.value)} type="email" placeholder="Enter email" />
             <Form.Text className="text-muted">
             We'll never share your email with anyone else.
             </Form.Text>
@@ -54,9 +54,6 @@ const Sigform = () => {
         <Form.Group>
             <Form.Label>Register Number</Form.Label>
             <Form.Control required type="text" placeholder="Enter Register Number" />
-            <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-            </Form.Text>
         </Form.Group>
     </Form.Group>
 
@@ -66,6 +63,7 @@ const Sigform = () => {
         required
         type="password"
         id="inputPassword6"
+        placeholder="Enter Password"
         aria-describedby="passwordHelpInline"
         onChange={event=>setPassword(event.target.value)}
     />

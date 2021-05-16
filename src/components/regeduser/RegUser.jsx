@@ -119,6 +119,8 @@ const RegUserform = () => {
             <option value="Volleyball">Volleyball</option>
             <option value="Badminton">Badminton</option>
         </Form.Control>
+        
+        <br/>
         <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
         Choose Date
         </Form.Label>
@@ -130,7 +132,7 @@ const RegUserform = () => {
         onChange={setDate}
         value={date}
         />
-        <Button variant="success" onClick={fetchSlots}>
+        <Button variant="success" onClick={fetchSlots} className="confm">
             <Link style={{textDecoration: "none",color:"white" }} >Confirm Date</Link>
         </Button>
         <br/>
