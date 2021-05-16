@@ -36,7 +36,7 @@ function App() {
       
     })
 
-  },[user])
+  },[user])// eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="bg">

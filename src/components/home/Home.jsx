@@ -22,8 +22,8 @@ const Home = () => {
         Using web application technology to allow you to play your favourite sport at your own university without having to come in close contact with sports faculty.
         the application also simplifies the logging and management process for the faculty as they can maintian a log of the resources used without having
         to use traditional pen and paper methods.</span>
-
         </div>
+
         <div className="ringcenter">
             <img src={ring} alt="ring"/>
         </div>
@@ -37,7 +37,8 @@ const Home = () => {
         </Card>
         <script src="https://unpkg.com/react-dom@16.4.1/umd/react-dom.production.min.js"></script>
         </div>
-        </>
+
+    </>
     )
 }
 

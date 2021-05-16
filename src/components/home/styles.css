@@ -6,7 +6,7 @@
 
 .lefthome{
     background-color:rgba(0, 79.00750368833542, 151.93750709295273, 1);
-	width:968px;
+	width:965px;
 	height:615px;
 	position:absolute;
 	left:935px;
@@ -26,7 +26,7 @@
     width: 340px;
     height: 340px;
     position: absolute;
-    left: 782px;
+    left: 780px;
     top: 756px;
     z-index: 2;
     margin-left: 1%;
@@ -89,4 +89,8 @@ div {
 .buttonmain{
 	background-color:rgba(0, 79.00750368833542, 151.93750709295273, 1);
 	border-radius: 50px;
+}
+.footer{
+	align-self: baseline;
+	z-index: 10;
 }

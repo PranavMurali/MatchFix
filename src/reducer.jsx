@@ -23,7 +23,6 @@ const reducer = (state, action) => {
                 ...state,
                 sport:action.data,
                 fields:action.list,
-
             }
         default:
             return state;

@@ -4,18 +4,18 @@ import foot from "./img/foot.jpg"
 import "./styles.css"
 const Football = () => {
     return (
-        <Jumbotron fluid className="jumbo_bb">
+        <Jumbotron fluid className="jumbo_b">
         <Container>
             <h1>Football</h1>
             <Figure>
             <Figure.Image
                 width={500}
                 height={500}
-                alt="400x300"
+                alt="Football"
                 src={foot}
             />
-            <Figure.Caption className="caption_img">
-                Nulla vitae elit libero, a pharetra augue mollis interdum.
+            <Figure.Caption className="caption_im">
+                Football fields in VIT chennai include a 7's and a 11's field.
             </Figure.Caption>
             </Figure>
         </Container>

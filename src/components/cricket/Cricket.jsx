@@ -11,11 +11,11 @@ const Cricket = () => {
             <Figure.Image
                 width={500}
                 height={500}
-                alt="400x300"
+                alt="Cricket"
                 src={cric}
             />
             <Figure.Caption className="caption_img">
-                Nulla vitae elit libero, a pharetra augue mollis interdum.
+                The ground next to AB2 in VIT Chennai acts as the primary pitch. 
             </Figure.Caption>
             </Figure>
         </Container>

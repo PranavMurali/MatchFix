@@ -11,11 +11,11 @@ const Basket = () => {
             <Figure.Image
                 width={500}
                 height={500}
-                alt="400x300"
+                alt="Basketball"
                 src={bball}
             />
             <Figure.Caption className="caption_img">
-                Nulla vitae elit libero, a pharetra augue mollis interdum.
+                Basketball courts in VIT Chennai are the Hostel Court and Main court. 
             </Figure.Caption>
             </Figure>
         </Container>

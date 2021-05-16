@@ -6,16 +6,16 @@ const Games = () => {
     return (
         <Jumbotron fluid className="jumbo_bb">
         <Container>
-            <h1>Fluid jumbotron</h1>
+            <h1>More Games</h1>
             <Figure>
             <Figure.Image
                 width={500}
                 height={500}
-                alt="400x300"
+                alt="Games"
                 src={more}
             />
             <Figure.Caption className="caption_img">
-                Nulla vitae elit libero, a pharetra augue mollis interdum.
+                Sports available in VIT Chennai include, Table Tennis, Volleyball, Badminton and Hockey.
             </Figure.Caption>
             </Figure>
         </Container>

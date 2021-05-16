@@ -1,5 +1,5 @@
 import {React,useState} from 'react'
-import { Button, Form, Col,Jumbotron,Container} from 'react-bootstrap'
+import { Button, Form, Col,Jumbotron,Container,Collapse} from 'react-bootstrap'
 import './styles.css'
 import {useStateValue} from "../../StateProvider"
 import {Link} from "react-router-dom"; 
@@ -16,6 +16,7 @@ const RegUserform = () => {
     const [addp, setAddp] = useState('No');
     const [timeses,setTimeses] =useState([]);
     const [date,setDate] =useState(new Date());
+    const [open,setOpen] =useState();
     let sd=[];
     let timeleft=[];
     let times=["9:00-10:00","10:00-11:00","11:00-12:00","12:00-1:00","1:00-2:00","2:00-3:00","3:00-4:00","4:00-5:00"]
@@ -38,6 +39,7 @@ const RegUserform = () => {
             }
         }
         setTimeses(timeleft);
+        setOpen(!open);
     }
     
     const createSlot = async (e)=>{
@@ -66,6 +68,7 @@ const RegUserform = () => {
         .catch((error) => {
             console.error("Error writing document: ", error);
         });
+        alert("You've Booked a Slot.")
     }
 
     return (
@@ -132,9 +135,14 @@ const RegUserform = () => {
         onChange={setDate}
         value={date}
         />
-        <Button variant="success" onClick={fetchSlots} className="confm">
+        <Button variant="success" onClick={fetchSlots} className="confm" aria-controls="example-collapse-text" aria-expanded={open}>
             <Link style={{textDecoration: "none",color:"white" }} >Confirm Date</Link>
         </Button>
+        <Collapse in={open}>
+        <div id="example-collapse-text">
+            The Date chosen has the Following Slots.
+        </div>
+        </Collapse>
         <br/>
         <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
         Choose Slot

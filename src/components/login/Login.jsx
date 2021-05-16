@@ -15,6 +15,7 @@ const Login = () => {
             history.push('/');
         })
         .catch((e)=>alert(e.message));
+        alert("You've Logged in.")
     }
 
 

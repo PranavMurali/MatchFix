@@ -15,6 +15,7 @@ const Sigform = () => {
             history.push('/');
         })
         .catch((e)=>alert(e.message));
+        alert("You've Been Signed up and Logged in.")
     }
 
 
