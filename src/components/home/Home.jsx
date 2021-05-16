@@ -35,9 +35,7 @@ const Home = () => {
             <Button variant="primary" href="https://github.com/PranavMurali/MatchFix" target="_blank" rel="noopener noreferrer">Repository</Button>
         </Card.Body>
         </Card>
-        <script src="https://unpkg.com/react-dom@16.4.1/umd/react-dom.production.min.js"></script>
         </div>
-
     </>
     )
 }
