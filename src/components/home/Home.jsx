@@ -32,7 +32,7 @@ const Home = () => {
         <Card.Img variant="top" src={github}/>
         <Card.Body>
             <Card.Title style={{color: "white"}}>Github</Card.Title>
-            <Button variant="primary" href="https://github.com/PranavMurali/MatchFix" target="_blank" rel="noopener noreferrer">Repository</Button>
+            <Button variant="primary" href="https://github.com/PranavMurali/MatchFix">Repository</Button>
         </Card.Body>
         </Card>
         </div>

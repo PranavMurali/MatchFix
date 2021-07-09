@@ -1,33 +1,32 @@
 .imghome{
     display: block;
-    margin-top:-300px;
+    margin-top:-17%;
     margin-left: 57% !important;
 }
 
 .lefthome{
     background-color:rgba(0, 79.00750368833542, 151.93750709295273, 1);
-	width:965px;
-	height:615px;
+	width:50.89%;
+	height:60%;
 	position:absolute;
-	left:935px;
-	top:628px;
+	left:49.1%;
+	top:67%;
 }
 .righthome{
     background-color:rgba(239.0625, 239.0625, 239.0625, 1);
-    width:965px;
-	height:615px;
+    width:50.89%;
+	height:60%;
 	position:absolute;
-	right: 935px;
-    left: 0px;
-	top:628px;
+    right:49.1%;
+	top:67%;
 }
 
 .ringcenter{
-    width: 340px;
-    height: 340px;
+    width: 40%;
+    height: 40%;
     position: absolute;
-    left: 780px;
-    top: 756px;
+    left: 41%;
+    top: 80%;
     z-index: 2;
     margin-left: 1%;
 }
@@ -38,28 +37,28 @@ div {
 
 .p1 {
     color:rgba(0, 0, 0, 1);
-	width:634px;
-	height:100px;
+	width:60%;
+	height:10%;
 	position:absolute;
-	left:346px;
-	top:268px;
+	left:18%;
+	top:29%;
 	font-family:Poppins;
 	text-align:left;
-	font-size:70px;
+	font-size:400%;
 	letter-spacing:0.5;
 }
 
 .p2{
     transform: rotate(0.12360461492520917deg);
 	color:rgba(132.8124949336052, 132.8124949336052, 132.8124949336052, 1);
-	width:462.36578369140625px;
-	height:46.78660583496094px;
+	width:43%;
+	height:43%;
 	position:absolute;
-	left:354.1009216308594px;
-	top:231px;
+	left:18%;
+	top:26%;
 	font-family:Poppins;
 	text-align:left;
-	font-size:23px;
+	font-size:150%;
 	letter-spacing:5.5;
 }
 
@@ -70,20 +69,20 @@ div {
 	position:absolute;
 	font-family:Poppins;
 	text-align:left;
-	font-size:26px;
+	font-size:150%;
 	letter-spacing:0.5;
     z-index: 4;
 }
 
 .butmain{
-	margin-top: 300px;
-	margin-left: 352px;
+	margin-top: 15%;
+	margin-left: 18%;
 	z-index: 100;
 }
 
 .cardlink{
-	margin-top:100px;
-	margin-left: 100px;
+	margin-top:15%;
+	margin-left: 30%;
 }
 
 .buttonmain{
